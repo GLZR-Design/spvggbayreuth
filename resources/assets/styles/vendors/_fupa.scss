@@ -1,0 +1,188 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Fupa                                    */
+/* -------------------------------------------------------------------------- */
+/* ------------------------------ Kader-Widget ------------------------------ */
+/*
+.content_table_std {
+  vertical-align: middle;
+  &:not(:last-child) {
+    margin-bottom: var(--spacer-lg);
+  }
+  tr {
+    td,
+    th {
+      background-color: transparent !important;
+    }
+    td {
+      &[width] {
+        width: auto;
+        span {
+          background-color: transparent !important;
+          a {
+            color: currentColor !important;
+          }
+        }
+      }
+      &[align="right"] {
+        text-align: right;
+      }
+      &.tabelle_info {
+        @extend %font-style-meta;
+        text-transform: none;
+        text-align: right;
+      }
+    }
+  }
+  &.liga_tabelle {
+    tr,
+    th,
+    td {
+      background-color: transparent;
+    }
+    tr {
+      &.highlight {
+        @extend .table__row--highlight;
+      }
+      &.tabelle_farbe {
+        &_absteiger {
+          border-top-width: var(--table-border-width) !important;
+          border-top-style: solid !important;
+          border-top-color: var(--color-red) !important;
+        }
+      }
+    }
+  }
+  &.trainer {
+    display: none;
+  }
+  &.spielerkader {
+    .top_header_big {
+      @extend %font-size-regular;
+      @extend %text-uppercase;
+      th {
+        &:first-child {
+          width: 30%;
+        }
+        padding-top: var(--table-cell-padding-top) !important;
+        padding-bottom: var(--table-cell-padding-bottom) !important;
+        padding-left: var(--table-cell-padding-x) !important;
+        padding-right: var(--table-cell-padding-x) !important;
+      }
+      & ~ * {
+      }
+    }
+    tr {
+      th {
+        i {
+          &.font-icon.icon {
+            font-family: var(--font-family) !important;
+            @extend %font-style-table-head;
+            span {
+              display: none;
+            }
+            &::before {
+              position: absolute;
+              //   top: 50%;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+          &.fupa-icon {
+            &-tshirt3 {
+              &::before {
+                content: "Spiele";
+              }
+            }
+            &-football28 {
+              &::before {
+                content: "Tore";
+              }
+            }
+            &-acircle2 {
+              &::before {
+                content: "Assists";
+              }
+            }
+            &-card {
+              content: "";
+              height: 1em;
+              width: 0.75em;
+              border-radius: 0.1em;
+            }
+            &-red-card {
+              &::before {
+                @extend .fupa-icon-card;
+                background-color: var(--color-red);
+              }
+            }
+            &-yellow-red-card {
+              &::before,
+              &::after {
+                @extend .fupa-icon-card;
+              }
+              &::before {
+                background-color: var(--color-red);
+                transform: translateX(20%);
+              }
+              &::after {
+                background-color: var(--color-yellow);
+                transform: translate(-65%, 15%);
+                z-index: 1;
+              }
+            }
+            &-yellow-card {
+              &::before {
+                @extend .fupa-icon-card;
+                background-color: var(--color-yellow);
+              }
+            }
+          }
+        }
+      }
+      td {
+        @extend %font-weight-regular;
+        &.team_trikot_nr_td {
+          .team_trikot_nr {
+            background-image: none;
+            // height: 100%;
+            div {
+              width: 2ch;
+              position: relative;
+              top: 0;
+              height: 100%;
+              font-family: var(--font-family);
+
+              @extend %font-size-regular;
+              @extend %text-uppercase;
+            }
+          }
+        }
+        &.bild {
+          width: 0 !important;
+          padding: 0 !important;
+          img {
+            display: none;
+          }
+        }
+        &.spielername {
+          width: 50%;
+          a {
+            &:link,
+            &:visited {
+              color: var(--color-text);
+              text-decoration: none;
+            }
+          }
+          & + td {
+            width: 0 !important;
+            padding: 0 !important;
+            img {
+              display: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

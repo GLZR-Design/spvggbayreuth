@@ -1,0 +1,38 @@
+//@charset "UTF-8";
+//
+// 1. Configuration and helpers
+@import "abstracts/functions", "abstracts/variables", "abstracts/mixins",
+  "abstracts/extends", "abstracts/helper", "abstracts/utility";
+//
+// 2. Vendors
+@import "vendors/normalize", "vendors/bootstrap", "vendors/glzr-vars",
+  "vendors/slick", "vendors/sportspress", "vendors/aos", "vendors/fupa", "vendors/shame",
+  "vendors/gutenberg", "vendors/plugins", "../../node_modules/spinners/stylesheets/spinners", "vendors/webslide";
+////
+//// 3. Base stuff
+@import
+"base/animations",
+"base/base",
+"base/fonts",
+"base/typography",
+
+"base/helpers";
+
+// 4. Layout-related sections
+@import "layout/wrapper", "layout/body", "layout/header", "layout/sections",
+  "layout/sidebar", "layout/divider", "layout/footer", "layout/article",
+  "layout/container", "layout/main";
+
+// 5. Components
+@import "components/menu", "components/button", "components/slider",
+  "components/list", "components/teaser", "components/mega-menu",
+  "components/taglist", "components/blockquote", "components/comments",
+  "components/form", "components/search", "components/pagination",
+  "components/switch", "components/table", "components/figures", "components/hero-image",
+  "components/scrollspy", "components/gallery", "components/sponsor-grid", "components/spinner", "components/card", "components/post-filter", "components/sitemap", "components/breadcrumb";
+
+// 6. Page-specific styles
+ @import "pages/home", "pages/page";
+
+// 7. Themes
+@import "themes/admin.scss", "themes/default", "themes/sponsor";

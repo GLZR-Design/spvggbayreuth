@@ -1,0 +1,232 @@
+/* -------------------------------------------------------------------------- */
+/*                                  IE Fixes                                  */
+/* -------------------------------------------------------------------------- */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  $sidebar-width: 1.875rem;
+  $font-size-base: 1.5rem;
+  $font-size-label: $font-size-base * 0.875;
+  $headline-size-large: 2.5rem;
+
+  body {
+    background-color: black;
+    color: white;
+    font-size: $font-size-base;
+  }
+
+  a:link,
+  a:visited {
+    color: currentColor;
+  }
+
+  .wrapper {
+    width: 80%;
+    padding-top: 17.5vh;
+  }
+
+  /* --------------------------------- Sidebar -------------------------------- */
+
+  .sidebar {
+    width: 2.5rem;
+    &__menu-toggle {
+      cursor: pointer; /* Wichtig für iOS */
+      position: relative;
+      width: 100%;
+      height: 30px;
+      margin-bottom: $grid-gutter-width;
+    }
+    &__logo {
+      filter: invert(1);
+    }
+    .theme-switch {
+      display: none;
+    }
+  }
+
+  /* ---------------------------------- Main ---------------------------------- */
+
+  .main {
+    padding-left: 15%;
+  }
+
+  /* ---------------------------------- Hero ---------------------------------- */
+
+  .hero {
+    font-size: 2.5rem;
+    margin-bottom: 5%;
+
+    &__headline {
+      margin-top: 0;
+    }
+  }
+
+  /* ------------------------------- Navigation ------------------------------- */
+
+  .navigation {
+    background-color: white;
+    -ms-overflow-style: none;
+    overflow: auto;
+    color: black;
+
+    &__main {
+      font-size: 6rem;
+    }
+
+    &__sub {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* --------------------------------- Taglist -------------------------------- */
+
+  .taglist {
+    &__item {
+      font-size: $font-size-base;
+      &:not(:last-child) {
+        margin-right: 0.5em;
+      }
+    }
+    &__link {
+      border: 1px solid white;
+      padding: 0 0.5em;
+    }
+  }
+
+  /* --------------------------------- Teaser --------------------------------- */
+
+  .teaser {
+    &__headline {
+      font-size: $font-size-base;
+    }
+  }
+
+  /* --------------------------------- Article -------------------------------- */
+
+  /* -------------------------------- Sections -------------------------------- */
+
+  .section {
+    &__share,
+    &__write,
+    &__read-more,
+    &__thoughts,
+    &__teaser,
+    &__find {
+      padding-right: 20%;
+    }
+  }
+
+  /* --------------------------------- Footer --------------------------------- */
+
+  .footer {
+    margin: 10vh 0;
+    padding-right: 20%;
+  }
+
+  /* ------------------------------- Blockquote ------------------------------- */
+
+  .blockquote,
+  .wp-block-quote,
+  blockquote {
+    &::before,
+    &::after {
+      height: 3em;
+      flex: 0 0 0.575em;
+    }
+
+    & > * {
+      padding: 0 $grid-gutter-width;
+    }
+  }
+
+  /* --------------------------------- Comment -------------------------------- */
+
+  .comment {
+    width: 100%;
+    padding: 0 $grid-gutter-width/2;
+  }
+
+  /* --------------------------------- Buttons -------------------------------- */
+
+  .button {
+    padding: 0.5em 1em;
+    &--primary {
+      color: white;
+      background-color: black;
+    }
+    &__outline {
+      border: 1px solid white;
+    }
+  }
+
+  /* ---------------------------------- Form ---------------------------------- */
+
+  .form {
+    padding: 0 $grid-gutter-width/2;
+    &__field {
+      padding-top: calc(#{$font-size-label} * 1.5);
+    }
+    &__label {
+      font-size: $font-size-label;
+    }
+    &__textarea,
+    &__input {
+      padding: 0.5em;
+      margin-bottom: $grid-gutter-width/2;
+      & + .form__label {
+        position: absolute;
+        top: calc((#{$font-size-label} * 1.5) + 0.5em);
+        left: 0.5em;
+        opacity: 0;
+      }
+      &:focus + .form__label {
+        font-size: $font-size-label;
+        top: 0;
+        opacity: 1;
+      }
+      &:focus::placeholder {
+        opacity: 0;
+      }
+    }
+
+    .input,
+    .textarea {
+      font-size: $font-size-base;
+      color: white;
+      padding: var(--input-padding);
+
+      &:focus {
+        outline: 3px solid rgba(white, 0.2);
+        outline-offset: 1px;
+      }
+    }
+  }
+
+  /* ---------------------------------- Icon ---------------------------------- */
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    &__hamburger {
+      height: 2px;
+      &,
+      &::before,
+      &::after {
+        background-color: white;
+      }
+      &::before {
+        top: -0.5em;
+      }
+      &::after {
+        top: 0.5em;
+      }
+    }
+    &__search {
+      &::before {
+        border: 2px solid black;
+      }
+      &::after {
+        background-color: black;
+      }
+    }
+  }
+}

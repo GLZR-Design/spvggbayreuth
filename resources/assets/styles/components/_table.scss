@@ -1,0 +1,94 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Table                                   */
+/* -------------------------------------------------------------------------- */
+/*
+.table,
+table {
+  background-color: transparent !important;
+  vertical-align: middle;
+  tr {
+    height: var(--table-row-height);
+    th {
+      @extend %font-style-table-head;
+    }
+    td {
+      @extend %font-style-table-cell;
+      // font-weight: var(--font-weight-regular) !important;
+    }
+  }
+  &__row,
+  & tr {
+    &--highlight {
+      @extend %background-primary;
+      * {
+        @extend %text-color-black;
+      }
+    }
+    &:not(:last-of-type) {
+      td,
+      th {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        // border-bottom: var(--table-border) !important;
+        border-bottom-width: var(--table-border-width) !important;
+      }
+    }
+    &:first-child {
+      th {
+        border-bottom-color: var(--color-primary) !important;
+      }
+    }
+  }
+  &__cell,
+  &__head,
+  th,
+  td,
+  &__cell {
+    text-align: left;
+    padding-top: var(--table-cell-padding-top) !important;
+    padding-bottom: var(--table-cell-padding-bottom) !important;
+    padding-left: var(--table-cell-padding-x) !important;
+    padding-right: var(--table-cell-padding-x) !important;
+    height: var(--table-row-height) !important;
+    box-sizing: content-box;
+  }
+  &--black {
+    * {
+      @extend %text-color-white;
+    }
+    tr,
+    td {
+      // border-bottom-width: var(--table-border-width) !important;
+      border-bottom-color: var(--color-white-transparent);
+    }
+  }
+  &--dark-grey {
+    * {
+      @extend %text-color-white;
+    }
+    tr,
+    td {
+      // border-bottom-width: var(--table-border-width) !important;
+      border-bottom-color: var(--color-white-transparent);
+    }
+  }
+}
+
+.fupa_widget {
+  table {
+    // background-color: transparent;
+    @extend .table;
+    font-family: var(--font-family);
+    tr {
+      @extend .table__row;
+      td {
+        @extend .table__cell;
+        a {
+          @extend %font-style-table-head;
+        }
+      }
+    }
+  }
+}
+*/

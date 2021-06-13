@@ -1,0 +1,20 @@
+@mixin transition(
+  $element,
+  $function: ease-in-out,
+  $duration: 0.5s,
+  $origin: left,
+  $delay: false
+) {
+  transition: $element $function $duration;
+  transform-origin: $origin;
+  @if ($delay) {
+    transition-delay: 0.25s;
+  }
+}
+
+@mixin translate-on-hover() {
+  @include transition(all);
+  &:hover {
+    transform: translateY(-1%);
+  }
+}

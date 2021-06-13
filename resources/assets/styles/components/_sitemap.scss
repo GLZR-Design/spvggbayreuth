@@ -1,0 +1,31 @@
+.sitemap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(var(--font-size-subline) + var(--grid-gutter-padding));
+    background-color: var(--color-primary);
+    height: 4px;
+    width: 100%;
+
+  }
+
+  &__title {
+    @include font-style("subline", "extrabold", true, "white");
+    margin-bottom: var(--grid-gutter-width);
+  }
+  &__item {
+    &, a:link, a:visited {
+      @include font-style("large", "regular", false, "white");
+    }
+
+  }
+  &__list {
+margin: 0;
+    display: inline-block;
+  }
+}

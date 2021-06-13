@@ -1,0 +1,27 @@
+/* -------------------------------------------------------------------------- */
+/*                                  Comments                                  */
+/* -------------------------------------------------------------------------- */
+
+.comment {
+
+    list-style: none;
+    margin: 0;
+
+    &__content {
+        &::before, &::after {
+            display: inline;
+            position: relative;
+        }
+        &::before {
+            content: '„ ';
+        }
+        &::after {
+            content: ' “';
+        }
+    }
+    
+    &__author {
+        color: var(--color-grey-soft);
+    }
+
+}

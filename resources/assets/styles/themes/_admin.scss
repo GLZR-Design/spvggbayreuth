@@ -1,0 +1,6 @@
+.admin-controller {
+  background-color: var(--color-info);
+  @include font-style("small", "bold", true);
+  padding: var(--spacer-sm);
+
+}

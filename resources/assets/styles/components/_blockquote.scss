@@ -1,0 +1,42 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Blockquote                                 */
+/* -------------------------------------------------------------------------- */
+
+.blockquote {
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // text-align: center;
+  // margin: 0;
+  p {
+  }
+
+  em {
+    @extend %highlightbox-primary;
+  }
+
+  strong {
+    // font-weight: inherit;
+    @extend %highlightbox-black;
+  }
+
+  cite {
+    position: relative;
+    display: inline;
+
+    &:before {
+      position: relative;
+      display: inline-block;
+      content: "";
+      width: 0.4em;
+      height: 0.4em;
+      margin-right: 0.4em;
+      margin-bottom: 0.1em;
+      background-color: var(--color-primary);
+    }
+  }
+}
+
+.wp-block-quote {
+  @extend .blockquote;
+}

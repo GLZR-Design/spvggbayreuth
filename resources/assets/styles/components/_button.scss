@@ -1,0 +1,54 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Button                                   */
+/* -------------------------------------------------------------------------- */
+
+.btn {
+  @extend %button-default;
+  &--icon {
+    padding: var(--input-padding);
+  }
+  &--black-white {
+    @extend %button-black-white;
+  }
+  &--black-primary {
+    @extend %button-black-primary;
+  }
+  &--white-black {
+    @extend %button-white-black;
+  }
+  &--white-primary {
+    @extend %button-white-primary;
+  }
+  &--primary-white {
+    @extend %button-primary-white;
+  }
+  &--primary-black {
+    @extend %button-primary-black;
+  }
+  &--primary {
+    @extend %button-primary;
+  }
+  &--white {
+    @extend %button-white;
+  }
+  &--black {
+    @extend %button-black;
+  }
+}
+
+// &--primary {
+//     color: var(--color-secondary);
+//     background-color: var(--color-primary);
+//     &:active, &:hover {
+//         color: var(--color-primary);
+//         background-color: var(--color-secondary);
+//     }
+//     &:focus, &:active {
+//         outline-color: rgba(var(--color-secondary-rgb), 0.2);
+//     }
+// }
+
+// &__outline {
+//     background-color: transparent;
+//     border: 1px solid currentColor;
+// }

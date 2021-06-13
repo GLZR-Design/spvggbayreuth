@@ -1,0 +1,57 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Search                                   */
+/* -------------------------------------------------------------------------- */
+
+.search-form {
+
+    margin-top: calc(var(--grid-gutter-padding) - var(--input-padding));
+    display: flex;   
+
+    &__input {
+        color: var(--color-primary); 
+        border-color: transparent;
+        background-color: rgba(var(--color-primary-rgb), 0.05);
+        margin-right: calc((var(--button-height) + (var(--input-padding)*2))*(-1));
+        transform: scaleX(0);
+        transition: 0.35s ease-in-out;
+        transform-origin: right;
+
+        &.show {
+            transform: scaleX(1);
+        }
+
+    }
+
+    &__submit, &__toggle {
+        background: none;
+        border: none;
+        transform: scale(0,0);
+        &.show {
+            z-index: 100;
+            transform: scale(1,1);
+        }
+    }
+    
+    &__toggle-wrapper {
+        position: absolute;
+        top: calc(var(--grid-gutter-padding) + var(--wrapper-padding-top) - var(--input-padding));
+        right: var(--grid-gutter-padding);
+    }
+    
+    &__toggle {
+        opacity: 0;
+
+        &.show {
+            opacity: 1;
+            display: inline-block;
+
+        }
+        &--hide {
+            transition: 0.35s ease-in-out;
+            padding-right: 0;
+        }
+    }
+
+   
+
+}

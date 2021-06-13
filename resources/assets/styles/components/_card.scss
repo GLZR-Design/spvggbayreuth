@@ -1,0 +1,38 @@
+.card {
+@include border-radius;
+  @include hoverline("primary");
+  * {
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__header {
+    margin-bottom: -0.5em;
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+  }
+
+  &__body {
+    position: relative;
+    padding: 0.7em 0 0.45em 0;
+  }
+
+  &__meta {
+    padding-left: var(--grid-gutter-padding);
+    top: 0;
+    @include textbox-polygon("primary");
+    @include font-style("regular", "bold", true);
+    position: absolute;
+    transform: translateY(-50%);
+
+  }
+
+  &__title {
+    @include font-style("large", "bold", false);
+    text-align: center;
+
+
+  }
+}

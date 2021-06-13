@@ -1,0 +1,32 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Grid                                    */
+/* -------------------------------------------------------------------------- */
+
+$grid-columns: 12;
+
+/* -------------------------------------------------------------------------- */
+/*                                 Breakpoint                                 */
+/* -------------------------------------------------------------------------- */
+
+$theme-breakpoints: () !default;
+
+$theme-breakpoints: map-merge(
+  (
+    mobile: 576px,
+    navbar: 992px,
+    tablet: 1024px,
+    laptop: 1440px,
+  ),
+  $theme-breakpoints
+);
+
+$theme-breakpoints: map-merge($grid-breakpoints, $theme-breakpoints);
+
+/* -------------------------------- Container ------------------------------- */
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1440px,
+) !default;

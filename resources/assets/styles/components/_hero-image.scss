@@ -1,0 +1,12 @@
+.hero-image {
+  height: var(--hero-image-height);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  //margin-bottom: var(--spacer-lg);
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}

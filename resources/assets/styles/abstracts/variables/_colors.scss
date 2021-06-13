@@ -1,0 +1,53 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Colors                                   */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------- Defaults -------------------------------- */
+
+$black: #000000;
+$white: #ffffff;
+$light-grey: #f2f2f2;
+$medium-grey: #bfbfbf;
+$dark-grey: #3b3b3b;
+
+$grey-colors: (
+  "white": $white,
+  "light-grey": $light-grey,
+  "medium-grey": $medium-grey,
+  "dark-grey": $dark-grey,
+  "black": $black,
+);
+
+$red: #ff002f;
+$blue: #1ca0ff;
+$green: #0ede5e;
+$yellow: #fbea01;
+
+$default-colors: (
+  "red": $red,
+  "blue": $blue,
+  "green": $green,
+  "yellow": $yellow,
+);
+
+/* ------------------------------ Theme-Colors ------------------------------ */
+
+$primary: $yellow;
+$secondary: $dark-grey;
+$text: #191919;
+$success: $green;
+$info: $blue;
+$warning: $yellow;
+$danger: $red;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "text": $text,
+  "success": $green,
+  "info": $blue,
+  "warning": $warning,
+  "danger": $red,
+);
+
+$theme-colors: map-merge($theme-colors, $grey-colors);

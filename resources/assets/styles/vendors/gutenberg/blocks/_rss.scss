@@ -1,0 +1,17 @@
+.#{$prefix}-rss {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5em;
+    &-title {
+      order: 2;
+      @include font-style("large", "bold");
+    }
+    &-publish-date {
+      @include font-style("small");
+      margin-bottom: 0.5em;
+      order: 1;
+    }
+  }
+
+}

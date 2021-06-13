@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Bootstrap                                 */
+/* -------------------------------------------------------------------------- */
+
+// Toggles
+//
+// Used in conjunction with global variables to enable certain theme features.
+
+// Vendor
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/vendor/rfs";
+
+// Deprecate
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/deprecate";
+
+// Helpers
+// @import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/breakpoints";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/image";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/resize";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/visually-hidden";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/reset-text";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/text-truncate";
+
+// Utilities
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/utilities";
+
+// Components
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/alert";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/buttons";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/caret";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/pagination";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/lists";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/list-group";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/forms";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/table-variants";
+
+// Skins
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/border-radius";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/box-shadow";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/gradients";
+// @import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/transition";
+
+// Layout
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/clearfix";
+// @import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/container";
+// @import "../../../../vendor/bootstrap-5.0.0-beta1/scss/mixins/grid";
+
+@import "mixins/typography";
+@import "mixins/components";
+@import "mixins/animation";
+@import "mixins/media-querys";
+@import "mixins/layout";
+@import "mixins/misc";
+@import "mixins/styling";

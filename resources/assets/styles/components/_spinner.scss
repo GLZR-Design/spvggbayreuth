@@ -1,0 +1,9 @@
+.spinner {
+  @include spinner(3px solid black);
+  transform: skewY(-2deg);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}

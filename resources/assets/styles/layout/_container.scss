@@ -1,0 +1,15 @@
+.container {
+  width: var(--main-container-width);
+  margin: auto;
+}
+
+.inner-container {
+  @extend %transform-noSkew;
+  width: var(--inner-container-width);
+  margin: auto;
+}
+
+.article-container {
+  width: var(--article-container-width);
+  margin: auto;
+}

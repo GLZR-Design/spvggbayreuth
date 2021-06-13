@@ -1,0 +1,25 @@
+.#{$prefix}-button {
+  &__link {
+    @extend %button-default;
+    @extend %button-animated;
+  }
+  &.is-style-small {
+    & > a {
+      font-size: var(--font-size-small);
+    }
+  }
+  &.is-style-large {
+    & > a {
+      font-size: var(--font-size-large);
+    }
+  }
+  .has-white-background-color {
+    @extend %button-white-black;
+  }
+  .has-primary-background-color {
+    @extend %button-primary-black;
+  }
+  .has-black-background-color {
+    @extend %button-black-white;
+  }
+}

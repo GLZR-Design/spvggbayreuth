@@ -1,0 +1,24 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Sponsorgrid                                */
+/* -------------------------------------------------------------------------- */
+
+.sponsor-grid {
+  display: grid;
+  column-gap: var(--grid-gutter-width);
+  .logo-wrapper {
+    transition: var(--transition);
+    filter: saturate(0) opacity(0.5);
+    &:hover {
+      filter: saturate(1) opacity(1);
+    }
+  }
+  &--main {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &--gold {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &--silver {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}

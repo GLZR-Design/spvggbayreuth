@@ -1,0 +1,28 @@
+/* -------------------------------------------------------------------------- */
+/*                               Helper Classes                               */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------- Positioning ------------------------------ */
+
+.absolute-center-y {
+  @extend %absolute-center-y;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+.logo-wrapper {
+  position: relative;
+  // margin: 0 auto;
+  .logo {
+    pointer-events: none;
+    width: 100%;
+  }
+}

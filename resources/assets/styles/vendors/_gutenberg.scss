@@ -1,0 +1,15 @@
+/* -------------------------------------------------------------------------- */
+/*                                  Gutenberg                                 */
+/* -------------------------------------------------------------------------- */
+
+$prefix: "wp-block";
+
+@import "gutenberg/typography";
+@import "gutenberg/colors";
+@import "gutenberg/blocks/button";
+@import "gutenberg/blocks/table";
+@import "gutenberg/blocks/image";
+@import "gutenberg/blocks/cover";
+@import "gutenberg/blocks/columns";
+@import "gutenberg/blocks/rss";
+@import "gutenberg/blocks/media-text";

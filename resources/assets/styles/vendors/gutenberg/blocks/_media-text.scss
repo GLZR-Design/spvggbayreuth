@@ -1,0 +1,27 @@
+.#{$prefix}-media-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &.has-media-on-the-right {
+    flex-direction: row-reverse;
+  }
+  &.is-stacked-on-mobile {
+    @include media-breakpoint-down(mobile) {
+
+    flex-direction: column;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+    padding-left: var(--grid-gutter-width);
+    padding-right: var(--grid-gutter-width);
+  }
+  &__media {
+    width: auto;
+    flex-grow: 0;
+  img {
+    width: auto;
+    height: 100%;
+  }
+  }
+}

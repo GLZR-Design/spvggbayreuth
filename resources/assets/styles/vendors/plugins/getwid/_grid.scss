@@ -1,0 +1,38 @@
+.getwid-columns {
+  display: grid;
+  gap: var(--grid-gutter-width);
+  margin: 0 !important;
+  justify-content: center;
+
+  &-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gutter-width);
+    @include media-breakpoint-down(mobile) {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+    @include media-breakpoint-down(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+  }
+
+  @for $i from 1 through 12 {
+    &-#{$i} {
+      $grid-gutters: $i - 1;
+      // $grid-column-width: calc(var(--inner-container-width) / #{$i});
+      $grid-column-width: calc(
+        calc(            var(--inner-container-width) -
+              calc((#{$i - 1}) * var(--grid-gutter-width))
+          ) /
+          #{$i}
+      );
+      grid-template-columns: repeat(auto-fit, #{$grid-column-width});
+      // grid-auto-rows: $grid-column-width;
+      & > * {
+        // grid-column: span #{12 / $i};
+        width: 100% !important;
+        padding: 0 !important;
+      }
+    }
+  }
+}

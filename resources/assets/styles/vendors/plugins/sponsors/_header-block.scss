@@ -1,0 +1,26 @@
+.glzr-block-sponsor-header-block {
+  position: sticky;
+  top: 0;
+  &__logo {
+    img {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &__content, &__logo {
+
+    @include container-width("inner", true);
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    p {
+      color: var(--color-primary);
+    }
+    i {
+        margin: 0 0.125em;
+
+      &:not(:last-child) {
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Colors                                   */
+/* -------------------------------------------------------------------------- */
+
+@each $color, $value in $theme-colors {
+  .has-#{$color}-background-color {
+    background-color: #{$value};
+    &.text-split {
+      background: none !important;
+    }
+  }
+}

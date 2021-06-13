@@ -1,0 +1,19 @@
+@mixin transform-skewY {
+  transform:  perspective(1px) translateZ(0) skewY($skew-deg);
+  zoom: 1.000;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@mixin transform-noSkewY {
+  transform:  perspective(1px) translateZ(0) skewY($skew-deg-neg) !important;
+  zoom: 1.000;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@mixin border-radius {
+  position: relative;
+  overflow: hidden;
+  border-radius: $border-radius;
+}

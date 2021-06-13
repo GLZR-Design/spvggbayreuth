@@ -1,0 +1,62 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the sidebar of the site/application.
+// -----------------------------------------------------------------------------
+
+.sidebar {
+
+    padding: var(--grid-gutter-padding);
+    position: fixed;
+    height: calc(100vh - var(--wrapper-padding-top));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1500;
+
+    &__menu-toggle {
+        cursor: pointer; /* Wichtig für iOS */
+        position: relative;
+        width: 100%;
+        height: var(--menu-toggle-height);
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        margin-bottom: $spacer;
+
+        &:active, &:focus {
+            border: none;
+            outline: none;
+            background-color:#8080802e;
+        }
+
+    }
+
+    &__logo {
+        width: var(--sidebar-width);
+        height: var(--sidebar-logo-height);
+        margin-bottom: auto;
+        display: block;
+        cursor: pointer; /* Wichtig für iOS */
+        .logo {
+            pointer-events: none;
+            filter: var(--color-invert);
+            transition: 0.2s ease-in-out;
+            transition-delay: 0.1s;
+        }
+    }
+
+}
+
+/* ----------------------- Style wenn Menü ausgefahren ---------------------- */
+
+.navigation.show {
+    & ~ .wrapper .sidebar {
+        & .sidebar__menu-toggle {
+            .icon {
+                @extend .icon__close;
+            }
+        }
+        & .sidebar__logo {
+            filter: invert(1);
+        }
+    }
+}

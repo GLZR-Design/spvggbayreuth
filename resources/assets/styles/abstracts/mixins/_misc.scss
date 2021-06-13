@@ -1,0 +1,8 @@
+@mixin variable-value-by-viewport($variable, $value) {
+  @include media-breakpoint-orientation(portrait) {
+    #{$variable}: #{$value}vw;
+  }
+  @include media-breakpoint-orientation(landscape) {
+    #{$variable}: #{$value}vh;
+  }
+}

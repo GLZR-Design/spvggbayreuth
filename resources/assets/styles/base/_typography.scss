@@ -1,0 +1,132 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: var(--color-black);
+  font-family: var(--font-family);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.25px;
+}
+
+
+p {
+  &:not([class]) {
+    font-size: var(--font-size-regular);
+    margin-bottom: 1em;
+  }
+}
+//
+ul {
+  list-style: none;
+}
+//
+//li {
+//  &:not([class]) {
+//    padding-left: 0.8em;
+//    margin-bottom: 0.35em;
+//    position: relative;
+//    font-weight: var(--font-weight-bold);
+//    &:before {
+//      top: 0.35em;
+//      left: 0;
+//      position: absolute;
+//      content: "";
+//      display: inline-block;
+//      width: 0.35em;
+//      height: 0.35em;
+//      background-color: var(--color-primary);
+//    }
+//  }
+//}
+
+
+.headline {
+  font-size: var(--font-size-title);
+  margin-bottom: 1em;
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  width: var(--icon-wrapper-width);
+  height: var(--icon-wrapper-height);
+  &::before,
+  &::after {
+    position: absolute;
+    transition: 1s ease-in-out;
+    content: "";
+  }
+
+  &__hamburger {
+    transition: 1s ease-in-out;
+    &,
+    &::before,
+    &::after {
+      border: none;
+      left: 0;
+      position: absolute;
+      display: block;
+      content: "";
+      width: var(--icon-wrapper-width);
+      height: var(--divider-height);
+      background-color: var(--color-black);
+      transform: rotate(0) translateY(0);
+      transform-origin: center;
+    }
+    &::before {
+      top: calc(var(--spacer-sm) * (-0.75));
+    }
+    &::after {
+      top: calc(var(--spacer-sm) * (0.75));
+    }
+  }
+
+  &__search {
+    &::before {
+      top: 14%;
+      left: 0;
+      width: 80%;
+      height: 65%;
+      border: 2px solid var(--color-primary);
+      border-radius: 30%;
+      box-shadow: 0 0 1px 0px white inset, 0 0 1px 0px white;
+    }
+    &::after {
+      bottom: 10%;
+      right: 0%;
+      width: 30%;
+      height: 2px;
+      background-color: var(--color-primary);
+      transform: rotate(40deg);
+      transform-origin: right;
+    }
+  }
+
+  &__close {
+    &::before,
+    &::after {
+      top: 50%;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: var(--color-primary);
+      transform-origin: center;
+    }
+    & {
+      background-color: transparent;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__arrow-right {
+    display: inline-block;
+    content: "→";
+    transform: translateY(-5%);
+  }
+}

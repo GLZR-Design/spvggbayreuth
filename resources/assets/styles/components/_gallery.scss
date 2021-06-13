@@ -1,0 +1,20 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Gallery                                  */
+/* -------------------------------------------------------------------------- */
+
+.wp-block-gallery {
+  list-style: none;
+}
+
+.blocks-gallery-item {
+  list-style: none;
+  &::before {
+    display: none;
+  }
+  &__caption {
+    display: none;
+  }
+  figcaption {
+    display: none;
+  }
+}

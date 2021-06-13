@@ -1,0 +1,17 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Divider                                  */
+/* -------------------------------------------------------------------------- */
+
+.divider {
+  @extend %divider;
+
+  &--black {
+    background-color: var(--color-black);
+  }
+  &--primary {
+    background-color: var(--color-primary);
+  }
+  &--white {
+    background-color: var(--color-white);
+  }
+}

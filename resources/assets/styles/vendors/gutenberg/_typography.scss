@@ -1,0 +1,60 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Typography                                 */
+/* -------------------------------------------------------------------------- */
+
+p {
+  strong {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+h1, h2, h3, h4, h5, h6, span, a {
+  &.has-background:not(.text-split) {
+    z-index: 1;
+    display: inline-block;
+    white-space: pre-wrap;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: var(--font-weight-bold);
+    &::after {
+      content: "";
+      display: block;
+      z-index: -1;
+      bottom: calc(#{$textbox-polygon-height} * (-0.025));
+      right: calc(#{$textbox-polygon-padding-x} * (-0.5)) !important;
+      position: absolute;
+      width: calc(100% + #{$textbox-polygon-padding-x});
+      height: $textbox-polygon-height;
+      transform: skewX(var(--skewX-degree));
+      transform-origin: center;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  @each $color, $value in $theme-colors {
+    &.has-#{$color}-color {
+      &.has-text-color,
+      & {
+        color: var(--color-#{$color});
+      }
+    }
+    &.has-#{$color}-background-color {
+      &::after {
+        background:
+                linear-gradient(-8deg, rgba(0,0,0,0.05) 0%, rgba(255,255,255,0.075) 100%),
+                var(--color-#{$color});
+      }
+      &.text-split {
+        &::after {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+
+@each $size, $factor in $font-size-map {
+  .has-#{$size}-font-size {
+    font-size: var(--font-size-#{$size}) !important;
+  }
+}

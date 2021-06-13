@@ -1,0 +1,114 @@
+/* -------------------------------------------------------------------------- */
+/*                                 Navigation                                 */
+/* -------------------------------------------------------------------------- */
+
+.menu {
+  height: auto;
+  display: flex;
+  padding-top: calc(var(--header-height) - var(--navbar-height));
+  width: var(--main-container-width);
+  z-index: 100;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+
+
+  &__list {
+    list-style: none;
+    position: relative;
+    margin-bottom: 0;
+    padding: 0;
+
+
+
+    @include media-breakpoint-up(md) {
+      padding-bottom: 0;
+      margin-top: auto;
+    }
+
+  }
+
+  &__item {
+
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    @include font-style("subline", "extrabold", true, "black");
+    backface-visibility: hidden;
+
+
+    &::before  {
+      display: none;
+    }
+
+    @include media-breakpoint-up(md) {
+      &:not(:last-child) {
+        margin-right: 2ch;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(navbar) {
+  .menu {
+    position: absolute;
+    background-color: var(--color-black);
+    width: 100%;
+    display: none;
+    &__list {
+      margin-left: 0;
+    }
+    &__item {
+      display: block;
+    }
+  }
+}
+
+.sub-menu {
+  padding-right: var(--main-container-padding);
+  padding-top: var(--grid-gutter-padding);
+  padding-bottom: var(--grid-gutter-width);
+  min-height: calc(var(--font-size-title) * 2.75);
+  display: flex;
+  &__teaser {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--grid-gutter-padding);
+  }
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-basis: 67%;
+    margin: 0;
+    margin-left: auto;
+  }
+  &__item {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    @include hoverline("primary");
+
+
+    &:before {
+      display: none;
+    }
+
+  }
+}
+
+.subsub-menu {
+  &__list {
+    padding: 0;
+    &--columns {
+      columns: 2;
+    }
+  }
+  &__item {
+    &::before  {
+      display: none;
+    }
+    & > a:hover {
+    }
+  }
+}

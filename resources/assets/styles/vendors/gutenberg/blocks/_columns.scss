@@ -1,0 +1,11 @@
+.#{$prefix}-columns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  .#{$prefix}-column {
+    flex-basis: 100%;
+    &:not(:last-child) {
+      margin-right: var(--grid-gutter-width);
+    }
+  }
+}

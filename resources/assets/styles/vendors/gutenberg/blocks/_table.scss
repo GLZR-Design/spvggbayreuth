@@ -1,0 +1,36 @@
+.#{$prefix}-table {
+  margin-bottom: 1em;
+  table {
+    tbody {
+      tr {
+        &:not(:last-of-type) {
+
+        th, td {
+          border-bottom-width: 2px;
+          border-bottom-style: solid;
+
+        }
+        }
+        th, td {
+          padding: 0.25em 0.5em;
+        }
+
+        th {
+          text-align: left;
+          border-bottom-color: var(--color-primary);
+        }
+        td {
+          border-bottom-color: var(--color-light-grey);
+
+        }
+      }
+    }
+  }
+
+}
+
+.article {
+  .#{$prefix}-table {
+    padding: 0 calc(var(--article-container-padding) * (0.5));
+  }
+}

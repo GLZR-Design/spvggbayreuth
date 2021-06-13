@@ -1,0 +1,32 @@
+[data-page-theme="sponsor"] {
+
+  position: relative;
+
+  h2 {
+    @include font-style("subtitle", "bold", true);
+    margin-bottom: 1em;
+    &:after {
+      display: block;
+      position: relative;
+      content: "";
+      width: 300px;
+      height: 0.1em;
+      background-color: var(--color-primary);
+    }
+  }
+
+  a {
+    color: var(--color-primary);
+  }
+
+  .has-primary-background-color {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    h2 {
+      &:after {
+       background-color: var(--color-accent);
+      }
+    }
+  }
+
+}

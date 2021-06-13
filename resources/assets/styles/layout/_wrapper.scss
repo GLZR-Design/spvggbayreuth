@@ -1,0 +1,24 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Wrapper                                  */
+/* -------------------------------------------------------------------------- */
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: var(--spacer-lg);
+  height: auto;
+  & > :first-child {
+    margin-top: var(--header-height);
+  }
+  &--skew {
+    @include transform-skewY;
+  }
+  &--no-skew {
+
+    * {
+      transform: skewY(0) !important;
+    }
+  }
+}

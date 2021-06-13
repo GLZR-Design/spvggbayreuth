@@ -1,0 +1,135 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Header                                   */
+/* -------------------------------------------------------------------------- */
+// .fixed {
+//   position: fixed;
+// }
+.header {
+  @extend %transform-skewY;
+  backface-visibility: hidden;
+  width: 100vw;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  // align-items: flex-end;
+  background-color: var(--color-primary);
+  height: var(--header-height);
+  box-shadow: (0 1vw 1vw rgba(0,0,0,0.1));
+  &__wrapper {
+    padding-top: var(--spacer-sm);
+    z-index: 1000;
+    position: fixed;
+
+
+    &::after {
+      display: block;
+      position: absolute;
+      background-color: var(--color-primary);
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 40%;
+      content: "";
+      z-index: -1;
+  }
+
+
+
+  }
+
+
+  &__title {
+    position: absolute !important;
+    top: calc(var(--header-height) - 4px);
+    right: 0 !important;
+    @include font-style("display", "extrabold", true);
+
+    z-index: -2;
+    margin-top: 0.25em;
+    margin-bottom: calc(calc(var(--font-size-display) * -1) - 0.5ch);
+    padding-right: var(--main-container-padding) !important;
+
+    // margin-top: calc(calc(var(--skew-height)) * (-1.09));
+    & > .sportspress__logos-block {
+      // @extend %transform-noSkewRotateY;
+      & > * {
+        justify-content: center;
+        & > span {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  &__logo-wrapper {
+
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--navbar-logo-width);
+    height: var(--navbar-logo-height);
+    transform: skewY(calc(var(--skew-degree) * -1)) scale(2) ;
+    .logo {
+      pointer-events: none;
+      width: var(--navbar-logo-width);
+    }
+    z-index: 9999;
+  }
+
+  &__menu {
+    width: 100%;
+    position: relative;
+    z-index: -1;
+  }
+  &__sub-menu {
+    padding: 0 var(--main-container-padding);
+
+    &--show {
+      min-height: var(--header-height);
+      height: auto;
+    }
+    overflow: hidden;
+    position: absolute;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &-list {
+      margin-top: var(--grid-gutter-padding);
+    }
+    &-posts {
+      margin-top: var(--grid-gutter-padding);
+      display: flex;
+      justify-content: flex-end;
+    }
+    width: 100%;
+    height: 0;
+    z-index: 100;
+
+    @include transition(all);
+    align-self: flex-end;
+    transform-origin: top;
+      .sub-menu__list {
+        height: 0;
+        opacity: 0;
+        @include transition(all);
+        transition-delay: 0.25s;
+      }
+  }
+
+  &__menu-toggle {
+    position: relative;
+    margin-top: var(--grid-gutter-width);
+    width: var(--icon-wrapper-width);
+    height: var(--icon-wrapper-width);
+    border: none;
+    background: transparent;
+  }
+}
+
+@include media-breakpoint-down(navbar) {
+  .header {
+  }
+}

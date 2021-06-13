@@ -1,0 +1,13 @@
+@import "../../../../vendor/slick-1.8.1/slick/slick.scss";
+@import "../../../../vendor/slick-1.8.1/slick/slick-theme.scss";
+.slick-list {
+  // height: auto !important;
+}
+.slick-track {
+  height: var(--hero-image-height);
+  display: flex !important;
+}
+
+.slick-slide {
+  height: auto !important;
+}

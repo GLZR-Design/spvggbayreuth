@@ -1,0 +1,72 @@
+// @each $breakpoint, $value in $grid-breakpoints {
+
+@mixin media-breakpoint($size, $orientation) {
+  @media screen and (max-width: map-get($theme-breakpoints, $size)) and (orientation: #{$orientation}) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up($size) {
+  @if $size == tablet {
+    @media screen and (min-width: #{map-get($theme-breakpoints, mobile)}) {
+      @content;
+    }
+  } @else if $size == laptop {
+    @media screen and (min-width: #{map-get($theme-breakpoints, tablet)}) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media screen and (min-width: #{map-get($theme-breakpoints, laptop)}) {
+      @content;
+    }
+  } @else if $size == navbar {
+    @media screen and (min-width: calc(#{map-get($theme-breakpoints, navbar)} - 0.001px)) {
+      @content;
+    }
+  } @else {
+    @each $abbr, $value in $grid-breakpoints {
+      @media screen and (min-width: #{map-get($grid-breakpoints, $abbr)}) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin media-breakpoint-down($size) {
+  @if $size == mobile {
+    @media screen and (max-width: calc(#{map-get($theme-breakpoints, mobile)} - 0.001px)) {
+      @content;
+    }
+  } @else if $size == navbar {
+    @media screen and (max-width: calc(#{map-get($theme-breakpoints, navbar)} - 0.001px)) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media screen and (max-width: calc(#{map-get($theme-breakpoints, tablet)} - 0.001px)) {
+      @content;
+    }
+  } @else if $size == laptop {
+    @media screen and (max-width: calc(#{map-get($theme-breakpoints, laptop)} - 0.001px)) {
+      @content;
+    }
+  } @else {
+    @each $abbr, $value in $grid-breakpoints {
+      @media screen and (max-width: calc(#{map-get($grid-breakpoints, $abbr)} - 0.001px)) {
+        @content;
+      }
+    }
+  }
+}
+
+
+@mixin media-breakpoint-orientation($orientation) {
+  @media screen and (orientation: #{$orientation}) {
+    @content;
+  }
+}
+
+@mixin touchscreen-portrait {
+  @media screen and (orientation: portrait) and (pointer: coarse) {
+    @content;
+  }
+}

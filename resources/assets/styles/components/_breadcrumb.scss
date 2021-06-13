@@ -1,0 +1,10 @@
+.breadcrumb {
+  margin-left: var(--main-container-padding);
+  display: inline-block;
+  padding: var(--grid-gutter-padding);
+  &__item {
+
+    @include font-style("regular", "bold", true, "white");
+    }
+
+}

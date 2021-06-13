@@ -1,0 +1,27 @@
+.glzr-sponsor-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: 100px;
+  grid-gap: var(--grid-gutter-padding);
+  //@include transform-noSkewY;
+  &__item {
+    background-color: var(--color-white);
+    padding: var(--spacer-sm);
+    @include border-radius;
+    @include box-shadow();
+    @include transition(all);
+    transform-origin: center;
+    img {
+      height: 100%;
+      //filter: grayscale(100%) brightness(0) invert(1);
+      //&#logo-aundi {
+      //  filter: grayscale(100%) contrast(300%);
+      //}
+    }
+    &:hover {
+      transform: scale(1.05);
+      img {
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+/// Regular font family
+/// @type List
+$text-font-stack: "Inter", "Open Sans", "Helvetica Neue Light", "Helvetica Neue",
+  "Helvetica", "Arial", sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+  "Monaco", monospace !default;
+
+/* -------------------------------- Font-Size ------------------------------- */
+
+$font-size-regular: 1rem;
+
+$font-size-map: (
+  "regular": 1,
+  "large": 1.2,
+  "small": 0.81,
+  "headline": 1.81,
+  "subline": 1.5,
+  "title": 2.5,
+  "subtitle": 2.2,
+  "display": 3.25
+);

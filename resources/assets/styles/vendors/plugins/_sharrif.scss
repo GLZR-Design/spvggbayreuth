@@ -1,0 +1,16 @@
+.shariff {
+  &__wrapper {
+    margin-top: var(--spacer-md);
+    padding: var(--spacer-rg) var(--grid-gutter-width) !important;
+    display: flex;
+    align-items: center;
+    & > :first-child {
+      margin-left: auto;
+      margin-right: var(--grid-gutter-padding);
+
+    }
+  }
+  &-buttons {
+    width: auto;
+  }
+}

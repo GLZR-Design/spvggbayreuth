@@ -1,0 +1,627 @@
+/* -------------------------------------------------------------------------- */
+/*                                   EXTENDS                                  */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------------- Color --------------------------------- */
+
+%text-color-white {
+  color: var(--color-white);
+}
+
+%text-color-black {
+  color: var(--color-text);
+}
+
+/* -------------------------------- Position -------------------------------- */
+
+%absolute-top {
+  top: 0;
+}
+
+%absolute-centerY {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%absolute-centerX {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+%absolute-center {
+  @extend %absolute-centerY;
+  @extend %absolute-centerX;
+}
+
+%absolute-centerTop {
+  @extend %absolute-top;
+  @extend %absolute-centerX;
+}
+
+%position-absolute-center {
+  position: absolute;
+  @extend %absolute-center;
+}
+
+%position-absolute-centerTop {
+  position: absolute;
+  @extend %absolute-centerTop;
+}
+
+/* --------------------------------- Layout --------------------------------- */
+
+%display-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------------------- Background ------------------------------- */
+
+%background-image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ------------------------------- Typography ------------------------------- */
+
+
+%text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  line-height: 1em;
+}
+
+%font-weight-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+%font-weight-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+%font-weight-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+%font-style-normal {
+  font-style: normal;
+}
+
+
+%background-black {
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+%background-grey {
+  color: var(--color-white);
+  background-color: var(--color-grey-soft);
+}
+%background-light-grey {
+  color: var(--color-white);
+  background-color: var(--color-light-grey);
+}
+%background-dark-grey {
+  color: var(--color-white);
+  background-color: var(--color-dark-grey);
+}
+%background-white {
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+%background-primary {
+  color: var(--color-text);
+  background-color: var(--color-primary);
+}
+
+@each $color, $value in $theme-colors {
+  %textbox-#{$color} {
+    @if $color == "black" or $color == "dark-grey" {
+      @include textbox($color, true);
+    }
+    @else {
+      @include textbox($color);
+    }
+
+  }
+}
+
+%textbox-polygon {
+  z-index: 1;
+  display: inline-block;
+  white-space: pre-wrap;
+  position: relative;
+  padding: 0;
+  // clip-path: polygon(0.25em 0%, 100% 0%, calc(100% - 0.25em) 100%, 0% 100%);
+  &::after {
+    content: "";
+    display: block;
+    z-index: -1;
+    bottom: calc(#{$textbox-polygon-height} * (-0.025));
+    left: calc(#{$textbox-polygon-padding-x} * (-0.5));
+    position: absolute;
+    width: calc(100% + #{$textbox-polygon-padding-x});
+    height: $textbox-polygon-height;
+    transform: skewX(var(--skewX-degree));
+    transform-origin: center;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+%hoverbox-polygon {
+  z-index: 1;
+  display: inline-block;
+  white-space: pre-wrap;
+  position: relative;
+  transition: color 0.2s ease-in-out 0.125s;
+  line-height: 1;
+  // backface-visibility: hidden;
+  &::after {
+    content: "";
+    display: block;
+    z-index: -1;
+    bottom: -0.15ch;
+    left: -0.75ch;
+    position: absolute;
+    width: calc(100% + 1.5ch);
+    height: $textbox-polygon-height;
+    transform: skewX(var(--skewX-degree)) scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      transform: skewX(var(--skewX-degree)) scale(1);
+    }
+  }
+}
+
+
+@each $color, $value in $theme-colors {
+  %hoverbox-#{$color} {
+    @extend %hoverbox-polygon;
+    &:hover {
+
+    &:after {
+      background-color: var(--color-#{$color});
+    }
+    }
+  }
+}
+
+%hoverbox-primary {
+  @extend %hoverbox-polygon;
+  &:hover {
+    color: var(--color-text);
+  }
+}
+%hoverbox-white {
+  @extend %hoverbox-polygon;
+  &:hover {
+    color: var(--color-text);
+  }
+}
+%hoverbox-black {
+  @extend %hoverbox-polygon;
+  &:hover {
+    color: var(--color-white);
+  }
+}
+
+%headlinebox-wrapper {
+  @extend %display-flex-column;
+  margin-bottom: var(--spacer-md);
+  align-items: flex-start;
+
+  * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  %headlinebox-#{$color} {
+    @extend %textbox-#{$color};
+    @extend %textbox-polygon;
+  }
+}
+
+%headlinebox-black {
+  @extend %textbox-black;
+  @extend %textbox-polygon;
+  // padding: 0.075em 0.45em 0 var(--headlinebox-padding);
+}
+
+%headlinebox-primary {
+  @extend %textbox-primary;
+  @extend %textbox-polygon;
+  // padding: 0.075em 0.45em 0 0.45em;
+}
+%headlinebox-white {
+  @extend %textbox-white;
+  @extend %textbox-polygon;
+  // padding: 0.075em 0.45em 0 var(--headlinebox-padding);
+}
+%headlinebox-dark-grey {
+  @extend %textbox-dark-grey;
+  @extend %textbox-polygon;
+  // padding: 0.075em 0.45em 0 var(--headlinebox-padding);
+}
+
+%highlight-box {
+  font-style: normal;
+  // margin: 0 0.3em;
+  @extend %textbox-polygon;
+  white-space: normal;
+}
+
+%highlightbox-black {
+  @extend %highlight-box;
+  @extend %textbox-black;
+}
+%highlightbox-primary {
+  @extend %textbox-primary;
+  @extend %highlight-box;
+}
+%highlightbox-white {
+  @extend %textbox-white;
+  @extend %highlight-box;
+}
+%highlightbox-light-grey {
+  @extend %textbox-light-grey;
+  @extend %highlight-box;
+}
+
+%hoverline {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  &::after {
+    content: "";
+    display: block;
+    z-index: -1;
+    bottom: -0.125em;
+    left: -0.5ch;
+    position: absolute;
+    width: calc(100% + 1ch);
+    height: 0.125em;
+    z-index: -1;
+    transform: scaleX(0) skewX(var(--skewX-degree));
+    transform-origin: left;
+    transition: all 0.5s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      transform: scaleX(100%) skewX(var(--skewX-degree));
+    }
+  }
+}
+
+%hoverline-primary {
+  @extend %hoverline;
+  @extend %textbox-primary;
+}
+
+/* ------------------------------- Box-Shadow ------------------------------- */
+
+%box-shadow-regular {
+  box-shadow: var(--shadow-regular);
+}
+
+%box-shadow-large {
+  box-shadow: var(--shadow-large);
+}
+
+%filter-shadow-regular {
+  filter: drop-shadow(var(--shadow-regular));
+}
+
+%filter-shadow-large {
+  filter: drop-shadow(var(--shadow-large));
+}
+
+%box-shadow-regular-inset {
+  box-shadow: var(--shadow-regular-inset);
+}
+
+/* --------------------------------- Styling -------------------------------- */
+
+%transform-skewY {
+  transform: skewY(var(--skew-degree)) perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+%transform-noSkew {
+  transform: skewY(calc(var(--skew-degree) * -1)) perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+%transform-rotateY {
+  transform: rotate(var(--skew-degree)) perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+%transform-noSkewRotateY {
+  transform: skewY(calc(var(--skew-degree) * -1)) rotate(var(--skew-degree)) perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+%clippath-skewY {
+  clip-path: polygon(
+    0 var(--skew-height),
+    100% 0,
+    100% calc(100% - var(--skew-height)),
+    0% 100%
+  );
+}
+
+%clippath-skewTop {
+  clip-path: polygon(0 var(--skew-height), 100% 0, 100% 100%, 0% 100%);
+}
+
+%clippath-skewBottom {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--skew-height)),
+    0% 100%
+  );
+}
+
+/* -------------------------------- Position -------------------------------- */
+
+%absolute-center-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* --------------------------------- Button --------------------------------- */
+
+%focus-outline-info {
+  &:focus {
+    outline: 4px solid;
+    outline-offset: 4px;
+    outline-color: rgba(var(--color-info-rgb), 0.25);
+  }
+}
+
+%button-default {
+  display: inline-block;
+
+  border-radius: 0.125rem;
+  position: relative;
+  overflow: hidden;
+
+  @include font-style("regular", "bold", true);
+  padding: var(--button-padding);
+  transition: color 0.2s ease-in-out 0.05s, background-color 0.2s ease-in-out,
+    transform 0.2s ease-out, outline 0.1s ease-in-out;
+  &:active {
+    transform: translateY(1px);
+    outline: 12px solid;
+  }
+  @extend %focus-outline-info;
+}
+
+%button-outline-white {
+  &:active {
+    outline-color: rgba(var(--color-white-rgb), 0);
+  }
+}
+%button-outline-black {
+  &:active {
+    outline-color: rgba(var(--color-black-rgb), 0);
+  }
+}
+%button-outline-primary {
+  &:active {
+    outline-color: rgba(var(--color-primary-rgb), 0);
+  }
+}
+
+%button-animated {
+  @extend %button-default;
+  background-color: transparent;
+  z-index: 1;
+  &::before {
+    content: "";
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    display: block;
+    z-index: -1;
+    top: 0;
+    left: -5%;
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    transform: skewX(var(--skewX-degree)) scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    &::after {
+      transform: skewX(var(--skewX-degree));
+    }
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+%button-primary {
+  @extend %button-default;
+  @extend %background-primary;
+  &:hover,
+  &:active,
+  &:focus {
+    @extend %background-black;
+  }
+  @extend %button-outline-black;
+}
+%button-black {
+  @extend %button-default;
+  @extend %background-black;
+  &:hover,
+  &:active,
+  &:focus {
+    @extend %background-white;
+  }
+  @extend %button-outline-white;
+}
+%button-white {
+  @extend %button-default;
+  @extend %background-white;
+  &:hover,
+  &:active,
+  &:focus {
+    @extend %background-black;
+  }
+  @extend %button-outline-black;
+}
+
+%button-black-white {
+  @extend %button-animated;
+  color: var(--color-white);
+  &:before {
+    @extend %background-black;
+  }
+  &:after {
+    @extend %background-white;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-black);
+  }
+  @extend %button-outline-white;
+}
+%button-black-primary {
+  @extend %button-animated;
+  color: var(--color-white);
+  &:before {
+    @extend %background-black;
+  }
+  &:after {
+    @extend %background-primary;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-black);
+  }
+  @extend %button-outline-primary;
+}
+%button-white-primary {
+  @extend %button-animated;
+  color: var(--color-black);
+  &:before {
+    @extend %background-white;
+  }
+  &:after {
+    @extend %background-primary;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-black);
+  }
+  @extend %button-outline-primary;
+}
+%button-white-black {
+  @extend %button-animated;
+  color: var(--color-black);
+  &:before {
+    @extend %background-white;
+  }
+  &:after {
+    @extend %background-black;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-white);
+  }
+  @extend %button-outline-black;
+}
+%button-primary-black {
+  @extend %button-animated;
+  color: var(--color-black);
+  &:before {
+    @extend %background-primary;
+  }
+  &:after {
+    @extend %background-black;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-white);
+  }
+  @extend %button-outline-black;
+}
+%button-primary-white {
+  @extend %button-animated;
+  color: var(--color-black);
+  &:before {
+    @extend %background-primary;
+  }
+  &:after {
+    @extend %background-white;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-black);
+  }
+  @extend %button-outline-white;
+}
+
+/* --------------------------------- Divider -------------------------------- */
+
+%divider {
+  // @extend %transform-skewY;
+  margin: var(--spacer-md) 0;
+  height: var(--divider-height);
+  border: none;
+  display: block;
+  width: 100%;
+}
+
+%pseudo-divider {
+  content: "";
+  @extend %divider;
+}
+
+%pseudo-divider-black {
+  @extend %pseudo-divider;
+  background-color: var(--color-black);
+}
+
+%pseudo-divider-white {
+  @extend %pseudo-divider;
+  background-color: var(--color-white);
+}
+
+%pseudo-divider-primary {
+  @extend %pseudo-divider;
+  background-color: var(--color-primary);
+}
+
+%pseudo-divider-light-grey {
+  @extend %pseudo-divider;
+  background-color: var(--color-light-grey);
+}

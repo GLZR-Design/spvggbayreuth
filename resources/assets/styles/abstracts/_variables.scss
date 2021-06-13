@@ -1,0 +1,23 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$vendor-path: "../../../../vendor/";
+
+@import "variables/colors";
+@import "variables/typography";
+@import "../../../../vendor/bootstrap-5.0.0-beta1/scss/variables";
+@import "variables/grid";
+@import "variables/styling";
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: "/assets/" !default;
+
+/* ------------------------------- Headlinebox ------------------------------ */
+
+$textbox-polygon-padding-y: 0.25em;
+$textbox-polygon-padding-x: 1em;
+$textbox-polygon-height: calc(100% + #{$textbox-polygon-padding-y});

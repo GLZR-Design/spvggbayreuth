@@ -1,0 +1,6 @@
+.#{$prefix}-cover {
+  img {
+    max-height: var(--hero-image-height);
+    object-fit: cover;
+  }
+}
