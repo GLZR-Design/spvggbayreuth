@@ -11,5 +11,5 @@ module.exports = {
   outputFolder: "../assets",
   publicFolder: "assets",
   proxyTarget: "http://localhost:8888/spvggbayreuth",
-  watch: ["../**/*.php", "assets/scripts/*.js"],
+  watch: ["../../../**/*.php", "assets/scripts/*.js"],
 };

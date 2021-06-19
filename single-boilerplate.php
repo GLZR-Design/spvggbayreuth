@@ -20,27 +20,40 @@
     $block_title = "Test";
     $photo = true;
 
-    if ($staff_job) {
-        $query = new WP_Query(array(
-            "post_type" => "sp_staff",
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'sp_job',
-                    'field' => 'slug',
-                    'terms' => $staff_job
-                )
-            )
-        ));
+    $query = new WP_Query(array(
+            "post_type" => "adverts"
+    ));
 
-        $item = $query->posts;
+    if ($query->have_posts()) { ?>
 
+        <div class="teaser__grid">
+
+        <?php
+
+        while ($query->have_posts()) : $query->the_post();
+
+            get_template_part('template-parts/advert', 'image', null);
+
+            ?>
+
+
+        <?php endwhile; ?>
+
+        </div>
+
+<?php
     }
 
 
-    echo do_shortcode("[glzr-sponsor-gallery cat='silber-partner' grid-size='sm']");
-    echo do_shortcode("[glzr-sponsor-gallery cat='business-partner']");
-    echo do_shortcode("[glzr-sponsor-gallery cat='gold-partner' grid-size='lg']");
-    echo do_shortcode("[sp-league-table]")
+//    var_dump($item = $query->posts);
+
+
+
+
+//    echo do_shortcode("[glzr-sponsor-gallery cat='silber-partner' grid-size='sm']");
+//    echo do_shortcode("[glzr-sponsor-gallery cat='business-partner']");
+//    echo do_shortcode("[glzr-sponsor-gallery cat='gold-partner' grid-size='lg']");
+//    echo do_shortcode("[sp-league-table]")
 
     ?>
 

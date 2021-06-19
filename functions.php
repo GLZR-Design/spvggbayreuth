@@ -78,6 +78,7 @@ if ( function_exists( 'add_theme_support' ) ) {
     add_theme_support( 'sportspress' );
     // Add Thumbnail Theme Support.
     add_theme_support( 'post-thumbnails' );
+    add_image_size('advert-medium', null, 400); // Advert Medium
     add_image_size('teaser-small', 400, 150, true ); // Teaser Small
     add_image_size('teaser-inline', 400, 400, true); // Teaser Inline
     add_image_size('teaser-big', 400, 200, true); // Teaser Big
