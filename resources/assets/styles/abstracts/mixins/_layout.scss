@@ -20,3 +20,12 @@
     content: "";
   }
 }
+
+@mixin grid-columns($columns: 3, $responsive: true) {
+  grid-template-columns: repeat($columns, 1fr);
+  @if $responsive {
+    @include media-breakpoint-down(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

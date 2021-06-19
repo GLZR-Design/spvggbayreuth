@@ -115,6 +115,25 @@
 
             $query = new WP_Query( $args );
 
+
+            $queryAdverts = new WP_Query(array(
+                    'post_type' => 'adverts',
+                    'meta_query' => array(
+                            'relation' => 'AND',
+                        array(
+                            'key' => 'is_news',
+                            'value' => true,
+                            'compare' => '='
+                        ),
+                        array(
+                                'key' => 'news_category',
+                                'value' => $categoryValues,
+                                'compare' => 'IN'
+                        )
+                    )
+                )
+            );
+
             if( $query->have_posts() ) :
                 while( $query->have_posts() ): $query->the_post();
                     get_template_part("template-parts/teaser", "card", array("excerpt" => true, "box-shadow" => true));
@@ -123,7 +142,16 @@
             else :
                 echo 'No posts found';
             endif;
-
+//
+            var_dump($queryAdverts->have_posts(), $categoryValues);
+            if ($queryAdverts->have_posts()) :
+                while ($queryAdverts->have_posts()): $queryAdverts->the_post();
+                    echo "Hier bin ich";
+                    get_template_part("template-parts/advert", "image");
+                    var_dump(get_field('news_category'));
+                    endwhile;
+                    wp_reset_postdata();
+                    endif;
             ?>
 
         </div>

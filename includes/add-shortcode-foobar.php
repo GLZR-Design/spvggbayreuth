@@ -10,6 +10,7 @@ require_once( __DIR__ .'/shortcodes/sp-get-staff-block.php' );
 require_once( __DIR__ .'/shortcodes/wp-get-posts.php' );
 require_once( __DIR__ .'/shortcodes/glzr-get-page-gallery.php' );
 require_once( __DIR__ .'/shortcodes/sp-get-league-table.php' );
+require_once( __DIR__ .'/shortcodes/glzr-get-advert-gallery.php' );
 
 
 add_shortcode( 'sp-block-next-game', 'sp_block_next_game' );
@@ -22,3 +23,4 @@ add_shortcode( 'sp-staff-block', 'sp_get_staff_block' );
 add_shortcode( 'wp-get-posts', 'wp_get_posts' );
 add_shortcode( 'glzr-page-children-gallery', 'glzr_get_page_gallery' );
 add_shortcode( 'sp-league-table', 'sp_get_league_table' );
+add_shortcode( 'glzr-advert-gallery', 'glzr_get_advert_gallery' );

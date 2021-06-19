@@ -1,3 +1,13 @@
 .advert {
 
 }
+
+.glzr-block-advert-gallery {
+  @include container-width('section', true);
+}
+
+.glzr-advert-gallery {
+
+  @include grid-columns(3);
+
+}

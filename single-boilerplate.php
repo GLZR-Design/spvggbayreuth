@@ -52,7 +52,8 @@
 
 //    echo do_shortcode("[glzr-sponsor-gallery cat='silber-partner' grid-size='sm']");
 //    echo do_shortcode("[glzr-sponsor-gallery cat='business-partner']");
-//    echo do_shortcode("[glzr-sponsor-gallery cat='gold-partner' grid-size='lg']");
+//      echo do_shortcode("[glzr-advert-gallery cat='100-jahre']");
+      echo do_shortcode("[glzr-advert-gallery cat='100-jahre' per_page=3]");
 //    echo do_shortcode("[sp-league-table]")
 
     ?>
