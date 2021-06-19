@@ -1,6 +1,6 @@
 <?php
 
-register_post_type( 'Anzeigen', // Register Custom Post Type
+register_post_type( 'adverts', // Register Custom Post Type
         array(
         'labels'       => array(
             'name'               => esc_html( 'Anzeigen', 'html5blank' ), // Rename these to suit
@@ -27,8 +27,8 @@ register_post_type( 'Anzeigen', // Register Custom Post Type
             'thumbnail'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
         'can_export'   => true, // Allows export in Tools > Export
-        // 'taxonomies'   => array(
-        //     'post_tag',
-        //     'category'
-        // ) // Add Category and Post Tags support
+         'taxonomies'   => array(
+             'post_tag',
+             'category'
+         ) // Add Category and Post Tags support
     ) );   

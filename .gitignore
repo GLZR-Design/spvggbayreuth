@@ -3,3 +3,5 @@
 node_modules/*
 _preWebpack/
 resources/node_modules/*
+*/node_modules/*
+/resources/node_modules/

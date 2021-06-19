@@ -488,6 +488,7 @@ require_once ( __DIR__ . "/includes/function-sportspress-blocks.php");
 require_once ( __DIR__ . "/includes/register-nav-menus.php");
 require_once ( __DIR__ . "/includes/register-rest-route-menu.php");
 require_once ( __DIR__ . "/includes/register-taxonomy-for-page.php");
+require_once ( __DIR__ . "/includes/register-taxonomy-advert-cat.php");
 require_once ( __DIR__ . "/includes/function-rest-to-object.php");
 require_once ( __DIR__ . "/includes/function-deregister-wp-block-styles.php");
 require_once ( __DIR__ . "/includes/function-ajax-post-filter.php");
