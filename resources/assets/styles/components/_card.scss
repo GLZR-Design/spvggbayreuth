@@ -6,24 +6,29 @@
   }
 
   &__header {
-    margin-bottom: -0.5em;
+    margin-bottom: -0em;
     img {
+      display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: fill;
     }
 
   }
 
   &__body {
+    font-size: var(--font-size-small);
     position: relative;
-    padding: 0.7em 0 0.45em 0;
+    padding: 0;
+    padding-top: 1.25em;
+    height: auto;
   }
 
   &__meta {
     padding-left: var(--grid-gutter-padding);
     top: 0;
     @include textbox-polygon("primary");
-    @include font-style("regular", "bold", true);
+    @include font-style("small", "bold", true);
     position: absolute;
     transform: translateY(-50%);
 
@@ -31,8 +36,30 @@
 
   &__title {
     @include font-style("large", "bold", false);
-    text-align: center;
-
-
+    text-align: left;
+    margin-bottom: 0.25em;
+    padding-left: var(--grid-gutter-padding);
+    padding-right: var(--grid-gutter-padding);
+    &:last-child {
+      margin: 0;
+      padding-bottom: 0.5em;
+    }
+  }
+  &__content {
+    position: relative;
+    padding-left: var(--grid-gutter-padding);
+    padding-right: var(--grid-gutter-padding);
+    margin-bottom: 1em;
+    padding-top: 1em;
+    &:before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: rgba($black, 0.1);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 }

@@ -9,6 +9,7 @@ $vendor-path: "../../../../vendor/";
 @import "../../../../vendor/bootstrap-5.0.0-beta1/scss/variables";
 @import "variables/grid";
 @import "variables/styling";
+@import "variables/sizes";
 
 /// Relative or absolute URL where all assets are served from
 /// @type String
@@ -21,3 +22,21 @@ $base-url: "/assets/" !default;
 $textbox-polygon-padding-y: 0.25em;
 $textbox-polygon-padding-x: 1em;
 $textbox-polygon-height: calc(100% + #{$textbox-polygon-padding-y});
+
+
+$flex-grid-column-lg: 280px;
+$flex-grid-column-rg: 250px;
+$flex-grid-column-sm: 220px;
+$flex-grid-column-xs: 150px;
+$grid-template-columns: repeat(auto-fill, minmax($flex-grid-column-rg, 1fr));
+$grid-template-columns-sm: repeat(auto-fill, minmax($flex-grid-column-sm, 1fr));
+
+$sponsor-logo-height: 200px;
+
+$article-container-padding-neg: calc(var(--article-container-padding) * 0.5);
+
+$grid-sizes: (
+        'sm': $flex-grid-column-sm,
+        'xs': $flex-grid-column-xs,
+        'lg': $flex-grid-column-lg
+);

@@ -1,26 +1,75 @@
+.glzr-block-sponsor-gallery {
+    @include boxed-on-mobile;
+@include section-container();
+}
+
 .glzr-sponsor-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-template-rows: 100px;
   grid-gap: var(--grid-gutter-padding);
+  grid-row: auto;
+  grid-auto-rows: 1fr;
+  justify-content: center;
+    margin-bottom: var(--spacer-lg);
+  &:not(:last-child) {
+  }
+  &.grid {
+    &--lg {
+      grid-template-columns: repeat(2, 1fr);
+      @include media-breakpoint-down(mobile) {
+        grid-template-columns: 1fr;
+      }
+    }
+    &--md {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+    &--sm {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+  }
   //@include transform-noSkewY;
   &__item {
-    background-color: var(--color-white);
-    padding: var(--spacer-sm);
+    //background-color: var(--color-white);
+    background-color: transparent;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    //padding: var(--spacer-sm);
+
+    &--text-only {
+      align-self: center;
+      font-style: italic;
+      width: 80%;
+      @include font-style("large", "extrabold", true, "white")
+    }
+
     @include border-radius;
-    @include box-shadow();
+
     @include transition(all);
     transform-origin: center;
+    width: 100%;
+    height: 100%;
+      object-position: center;
+    text-align: center;
     img {
       height: 100%;
-      //filter: grayscale(100%) brightness(0) invert(1);
+      max-height: 100%;
+      width: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      filter: grayscale(100%) brightness(0) invert(1);
+      transition-duration: 0s;
+      transition-delay: 0.25s;
       //&#logo-aundi {
       //  filter: grayscale(100%) contrast(300%);
       //}
     }
     &:hover {
-      transform: scale(1.05);
+      background-color: var(--color-white);
+      @include box-shadow();
+      a {
+        color: var(--color-black);
+      }
       img {
+        filter: grayscale(0) brightness(1) invert(0);
       }
     }
   }

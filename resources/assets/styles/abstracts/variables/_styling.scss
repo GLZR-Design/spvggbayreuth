@@ -1,5 +1,5 @@
 $border-radius-sm : 0.125rem;
-$border-radius : 0.25rem;
+$border-radius : 0.2rem;
 
 $theme-spacer: (
         'rg': 1,
@@ -7,8 +7,10 @@ $theme-spacer: (
         'xs': 0.25,
         'md': 2,
         'lg': 4,
-        'xl': 8
+        'xl': 8,
+        'gutter': 2
 );
 
 $skew-deg: -2deg;
 $skew-deg-neg: 2deg;
+$clippath: calc(var(--section-container-width) * 0.02);

@@ -1,0 +1,6 @@
+.#{$prefix}-latest-posts {
+  @include section-container();
+  &:not(:first-child) {
+    margin-top: var(--spacer-lg);
+  }
+}

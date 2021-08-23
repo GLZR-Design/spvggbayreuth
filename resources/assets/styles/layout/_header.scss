@@ -5,49 +5,57 @@
 //   position: fixed;
 // }
 .header {
+
   @extend %transform-skewY;
   backface-visibility: hidden;
   width: 100vw;
   z-index: 10;
-  position: relative;
+  position: unset;
   display: flex;
   // align-items: flex-end;
-  background-color: var(--color-primary);
+  //background-color: var(--color-primary);
+
   height: var(--header-height);
   box-shadow: (0 1vw 1vw rgba(0,0,0,0.1));
-  &__wrapper {
-    padding-top: var(--spacer-sm);
-    z-index: 1000;
-    position: fixed;
-
-
     &::after {
       display: block;
       position: absolute;
       background-color: var(--color-primary);
-      top: 0;
+      height: 200%;
       right: 0;
       left: 0;
-      bottom: 40%;
+
+      bottom: 0;
       content: "";
       z-index: -1;
   }
-
-
-
+  &__wrapper {
+    padding-top: var(--spacer-sm);
+    z-index: 1000;
+    position: fixed;
   }
-
 
   &__title {
     position: absolute !important;
-    top: calc(var(--header-height) - 4px);
+    top: calc(var(--header-height));
     right: 0 !important;
-    @include font-style("display", "extrabold", true);
-
-    z-index: -2;
-    margin-top: 0.25em;
+    @include font-style("title", "extrabold", true);
+    z-index: -1 !important;
+    margin-top: 0.2em;
     margin-bottom: calc(calc(var(--font-size-display) * -1) - 0.5ch);
-    padding-right: var(--main-container-padding) !important;
+    padding-right: calc(calc(100vw - var(--section-container-width)) / 2) !important;
+    transition: all ease-in-out 0.5s !important;
+    transform-origin: top !important;
+    position: relative;
+
+    @include media-breakpoint-down(mobile) {
+      font-size: var(--font-size-headline);
+    }
+
+    &:after {
+      transition: none;
+      @include filter-drop-shadow;
+    }
 
     // margin-top: calc(calc(var(--skew-height)) * (-1.09));
     & > .sportspress__logos-block {
@@ -65,11 +73,13 @@
 
     display: inline-block;
     position: absolute;
-    top: 0;
     left: 0;
+    bottom: 0;
     width: var(--navbar-logo-width);
     height: var(--navbar-logo-height);
-    transform: skewY(calc(var(--skew-degree) * -1)) scale(2) ;
+    transition: all ease-in-out 0.5s;
+    transform-origin: center;
+    transform: skewY(calc(var(--skew-degree) * -1)) translate(-17%, 17%) ;
     .logo {
       pointer-events: none;
       width: var(--navbar-logo-width);
@@ -79,6 +89,9 @@
 
   &__menu {
     width: 100%;
+    //background-color: var(--color-primary);
+    transition: all ease-in-out 0.5s;
+    transform-origin: center;
     position: relative;
     z-index: -1;
   }
@@ -126,6 +139,20 @@
     height: var(--icon-wrapper-width);
     border: none;
     background: transparent;
+  }
+  &--shrink {
+    .header {
+      &__logo-wrapper {
+        //transform: skewY(calc(var(--skew-degree) * -1)) scale(1.5) ;
+      }
+      &__menu {
+        transform: translateY(-200px);
+      }
+      &__title {
+        top: calc(var(--header-height) * 0.5);
+        font-size: var(--font-size-title) !important;
+      }
+    }
   }
 }
 

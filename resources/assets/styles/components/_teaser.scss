@@ -18,9 +18,11 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--grid-gutter-width);
-    align-items: flex-start;
+    align-items: stretch;
+    @include boxed-on-mobile;
+
   }
 
   &--inline {
@@ -89,6 +91,11 @@
   &__excerpt {
     @include font-style('small');
 
+  }
+
+  &__more {
+    grid-column: 1 / -1;
+    text-align: center;
   }
 
 }

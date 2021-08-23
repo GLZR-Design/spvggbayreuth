@@ -21,11 +21,25 @@
   }
 }
 
-@mixin grid-columns($columns: 3, $responsive: true) {
-  grid-template-columns: repeat($columns, 1fr);
-  @if $responsive {
-    @include media-breakpoint-down(mobile) {
-      grid-template-columns: 1fr;
+@mixin section-container($fullwidth: false) {
+    width: var(--section-container-width);
+    margin-left: auto;
+    margin-right: auto;
+  @if ($fullwidth) {
+    padding-left: var(--section-container-padding);
+    padding-right: var(--section-container-padding);
+  }
+  @else {
+    @include media-breakpoint-down(tablet) {
+      padding-left: var(--section-container-padding);
+      padding-right: var(--section-container-padding);
     }
+  }
+}
+
+@mixin boxed-on-mobile {
+  @include media-breakpoint-down(mobile) {
+    padding-left: var(--article-container-padding) !important;
+    padding-right: var(--article-container-padding) !important;
   }
 }

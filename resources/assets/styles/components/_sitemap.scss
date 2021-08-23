@@ -2,6 +2,14 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  @include boxed-on-mobile;
+
+  @include media-breakpoint-down(mobile) {
+    flex-direction: column;
+    &:after {
+      display: none;
+    }
+  }
 
   &:after {
     content: "";
@@ -11,21 +19,31 @@
     background-color: var(--color-primary);
     height: 4px;
     width: 100%;
-
   }
 
   &__title {
     @include font-style("subline", "extrabold", true, "white");
     margin-bottom: var(--grid-gutter-width);
+    @include media-breakpoint-down(mobile) {
+      font-size: var(--font-size-headline);
+    }
   }
   &__item {
     &, a:link, a:visited {
-      @include font-style("large", "regular", false, "white");
+      @include font-style("regular", "regular", false, "white");
     }
+      @include media-breakpoint-down(mobile) {
+        &, a:link, a:visited {
 
+        font-size: var(--font-size-large);
+        }
+        &:last-child {
+         margin-bottom: var(--spacer-md);
+        }
+      }
   }
   &__list {
-margin: 0;
+    margin: 0;
     display: inline-block;
   }
 }

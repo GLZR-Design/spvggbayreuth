@@ -1,12 +1,31 @@
 .hero-image {
   height: var(--hero-image-height);
-  border-radius: 0.5rem;
+  max-height: var(--hero-image-height);
+  border-radius: 0rem;
   overflow: hidden;
+  width: var(--section-container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: var(--header-height);
   //margin-bottom: var(--spacer-lg);
   img {
     height: 100%;
     width: 100%;
+    position: absolute;
+    top: 0%;
+    transform: translateY(-0%);
     object-fit: cover;
-    object-position: top;
   }
+  & + .wp-block-getwid-table-of-contents {
+    margin-top: var(--spacer-lg);
+  }
+
+  & + main .wp-block-getwid-table-of-contents {
+    @include media-breakpoint-down(tablet) {
+      margin-top: calc(var(--hero-image-height) * -0.50);
+      margin-bottom: calc(var(--hero-image-height) * 0.25);
+
+    }
+  }
+
 }

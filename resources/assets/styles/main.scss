@@ -21,7 +21,7 @@
 // 4. Layout-related sections
 @import "layout/wrapper", "layout/body", "layout/header", "layout/sections",
   "layout/sidebar", "layout/divider", "layout/footer", "layout/article",
-  "layout/container", "layout/main";
+  "layout/container", "layout/main", "layout/grid";
 
 // 5. Components
 @import "components/menu", "components/button", "components/slider",
@@ -29,9 +29,7 @@
   "components/taglist", "components/blockquote", "components/comments",
   "components/form", "components/search", "components/pagination",
   "components/switch", "components/table", "components/figures", "components/hero-image",
-  "components/scrollspy", "components/gallery", "components/sponsor-grid",
-  "components/spinner", "components/card", "components/post-filter",
-  "components/sitemap", "components/breadcrumb", "components/advert";
+  "components/scrollspy", "components/gallery", "components/sponsor-grid", "components/spinner", "components/card", "components/post-filter", "components/sitemap", "components/breadcrumb";
 
 // 6. Page-specific styles
  @import "pages/home", "pages/page";

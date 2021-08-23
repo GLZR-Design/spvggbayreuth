@@ -13,8 +13,19 @@
   @if ($weight) {
     font-weight: var(--font-weight-#{$weight});
   }
+  text-transform: none;
+  letter-spacing: 0.005em;
   @if ($uppercase) {
     text-transform: uppercase;
+    @if $weight == 'regular' {
+      letter-spacing: 0.01em;
+    }
+    @if $weight == 'bold' {
+      letter-spacing: 0.02em;
+    }
+    @if $weight == 'extrabold' {
+      letter-spacing: 0.04em;
+    }
   }
 }
 

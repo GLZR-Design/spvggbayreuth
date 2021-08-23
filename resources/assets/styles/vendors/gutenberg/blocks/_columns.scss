@@ -6,6 +6,13 @@
     flex-basis: 100%;
     &:not(:last-child) {
       margin-right: var(--grid-gutter-width);
+      @include media-breakpoint-down(mobile) {
+        margin-right: 0;
+        margin-bottom: var(--grid-gutter-width);
+      }
     }
+  }
+  @include media-breakpoint-down(mobile) {
+    flex-direction: column;
   }
 }

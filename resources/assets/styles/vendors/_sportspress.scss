@@ -2,8 +2,20 @@
 /*                                 Sportspress                                */
 /* -------------------------------------------------------------------------- */
 
+@import "sportspress/blocks/profile-block";
+
+.sp-event-list {
+  @include boxed-on-mobile;
+}
+
+
 .sp-block-player-gallery, .sp-block-staff-gallery, .sp-block-event-list, .sp-block-league-table {
-  @include transform-noSkewY;
+  //@include transform-noSkewY;
+  @include section-container();
+}
+
+.sp-block-player-gallery, .sp-block-staff-gallery, .sp-block-event-list {
+  @include boxed-on-mobile;
 }
 
 .sp-league-table {
@@ -33,7 +45,7 @@
     position: relative;
     width: 3em;
     img {
-      height: 1.5em;
+      height: $data-table-logo-size;
       width: auto;
       position: absolute;
       top: 50%;
@@ -44,27 +56,54 @@
   &__rank {
     width: 3ch;
   }
+
+    @include media-breakpoint-down(mobile) {
+      &__logo, &__record, &__diff {
+      display: none;
+      }
+    }
+
+  @include media-breakpoint-down(tablet) {
+    &__team {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-up(laptop) {
+    &__short {
+      display: none;
+    }
+  }
+
   &__games, &__wins, &__draws, &__lost, &__goals, &__diff {
-    width: 5ch;
+    width: auto;
+
+  }
+  &__goals {
+    width: 3ch !important;
   }
   td, th {
     padding: 0.7em 0.4em 0.5em 0.4em;
     vertical-align: center;
     @include font-style("regular", "bold", true);
-    &:first-child {
-      padding-left: var(--grid-gutter-width);
-    }
-    &:last-child {
-      padding-right: var(--grid-gutter-width);
+      &:last-child {
+        padding-right: var(--grid-gutter-width);
+      }
+    @include media-breakpoint-up(tablet) {
+      &:first-child {
+        padding-left: var(--grid-gutter-width);
+
+      }
     }
     //border: 1px solid rgba($black, 0.05);
   }
 }
 
 .sp-player-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-columns: $grid-template-columns-sm !important;
   margin-bottom: var(--spacer-lg);
+  justify-content: center;
+  justify-items: center;
 }
 
 .sp-staff-gallery {
@@ -85,19 +124,30 @@
     height: 100px;
     width: 100px;
     transform: skewY(2deg);
+
+
   }
   span {
     margin: 0 0.5em;
   }
 
+    @include media-breakpoint-down(tablet) {
+      padding-right: var(--grid-gutter-padding);
+      img {
+        height: 4rem;
+        width: 4rem;
+      }
+      span {
+        font-size: var(--font-size-regular);
+      }
+    }
+
+
+
 }
 
 
 .sp-block-event-list, .sp-block-league-table {
-  width: var(--main-container-width);
-  margin: auto;
-  border-spacing: 0;
-  position: relative;
 
   &:not(:last-child) {
     margin-bottom: var(--spacer-lg);
@@ -105,18 +155,21 @@
   &__row {
     background-color: var(--color-white);
     position: relative;
-    * {
-
-    }
     overflow: hidden;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: row;
     align-content: center;
-    align-items: center;
-    //align: center;
+    align-items: stretch;
 
-    padding: var(--grid-gutter-padding);
-    @include font-style("small", "bold");
+    @include media-breakpoint-down(tablet) {
+      flex-direction: column;
+    }
+
+    padding: 0.75em var(--grid-gutter-padding);
+    @include font-style("small", "regular");
+    @include border-radius;
+    margin-bottom: var(--grid-gutter-padding);
 
     &:first-child {
       border-top-left-radius: $border-radius;
@@ -131,36 +184,56 @@
       border-bottom-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
     }
-
   }
   &__info {
-    display: flex;
-    justify-content: space-between;
+    display: block;
+    flex-basis: 20%;
+    justify-content: normal;
+    i {
+      font-size: $data-table-icon-size;
+      margin-right: 0.3em;
+    }
+    border-right: 1px solid rgba($black, 0.1);
+    @include media-breakpoint-down(tablet) {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      border-right: none;
+      padding-bottom: var(--spacer-sm);
+      margin-bottom: var(--spacer-rg);
+      border-bottom: 1px solid rgba($black, 0.1);
+    }
   }
 
   &__content {
     margin: 0 0;
+    flex-basis: 60%;
     flex-grow: 1;
-    display: block;
-    justify-content: center;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-  }
-  &__date, &__competition, &__time {
-
-    span {
-      display: block;
-      @include font-style("small", "regular");
+    border-right: 1px solid rgba($black, 0.1);
+    margin-right: var(--grid-gutter-padding);
+    @include media-breakpoint-down(tablet) {
+      border-right: none;
+      padding-bottom: var(--spacer-rg);
+      margin-bottom: var(--spacer-sm);
+      margin-right:0 ;
+      border-bottom: 1px solid rgba($black, 0.1);
+      justify-content: space-between;
     }
+
   }
 
   &__date {
     text-align: left;
-    flex-basis: 15ch;
+    //flex-basis: 20ch;
+    //margin-left: 1ch;
   }
 
   &__button {
     &--show {
-    margin-left: 15ch;
+    margin-left: 1ch;
 
     }
     &--hide {
@@ -170,53 +243,108 @@
   }
 
   &__competition {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 0.75em;
+    display: block;
+    justify-content: flex-start;
+    justify-self: center;
+    align-items: center;
+    text-align: left;
+    //font-weight: var(--font-weight-regular);
+    //font-size: 0.8em;
     &-logo {
       display: inline-block;
-      height: 1em;
+      height: $data-table-icon-size;
       width: auto;
-      margin-right: 0.4em;
+      margin-right: 0.3em;
+    }
+    @include media-breakpoint-down(mobile) {
+      span {
+        display: none;
+      }
     }
   }
 
   &__match {
-    display: flex;
+
     align-items: center;
+    @include font-style("regular", "bold");
   }
 
   &__button {
     cursor: pointer;
+    position: relative;
     background-color: transparent;
     border: none;
+    align-self: center;
+    &--show {
+      margin-left: auto;
+    }
+    &--hide {
+      margin-right: auto;
+    }
+    @include media-breakpoint-down(tablet) {
+      display: none;
+    }
   }
 
   &__team {
-    flex-basis: 50%;
-    @include font-style("regular", "bold", true);
-    padding: 0 var(--grid-gutter-padding);
+    flex-basis: calc(21ch + #{$data-table-logo-size});
+    @include font-style("regular", "bold", "true");
+    padding: 0 0;
+    text-align: left;
+    & ~ & {
+      text-align: right;
+
+    }
 
   }
   &__result {
     flex-basis: 5ch;
-    padding: 0 var(--grid-gutter-padding);
+    flex-shrink: 0;
+    padding: 0 0;
     @include font-style("regular", "bold");
+    @include media-breakpoint-down(tablet) {
+      flex-basis: 10%;
+      font-size: var(--font-size-large);
+    }
   }
-  &__logo {
-    flex-basis: 48px;
+  &__team {
+    display: flex;
     flex-shrink: 0;
     overflow: hidden;
-    padding: 0;
+    margin: 0 1ch;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
     img {
-      height: 48px;
+      flex-basis: $data-table-logo-size;
+      height: $data-table-logo-size;
       width: auto;
+      margin-left: 1ch;
+    }
+    & ~ & {
+      flex-direction: row;
+      img {
+        margin-right: 1ch;
+      }
+    }
+    @include media-breakpoint-down(tablet) {
+      flex-direction: column;
+      flex-basis: 40%;
+      margin: 0;
+      img {
+        flex-basis: 80px;
+        height: 80px;
+        margin-bottom: 0.5em;
+      }
+      @include font-style("small", "bold");
+      & ~& {
+        flex-direction: column;
+      }
     }
   }
 
   &__links {
-    background-color: rgba($primary, 0.9);
+    background-color: var(--color-primary);
     position: absolute;
     padding: var(--grid-gutter-padding);
     top: 0;
@@ -225,11 +353,19 @@
     bottom: 0;
     display: flex;
     transform: translateX(100%);
-    justify-content: space-between;
+    justify-content: center;
     @include transition(all);
 
     &--show {
       transform: translateX(0);
+    }
+
+    @include media-breakpoint-down(tablet) {
+      background-color: var(--color-white);
+      position: relative;
+      transform: translateX(0);
+      padding: 0;
+      margin-bottom: calc(var(--grid-gutter-padding) * -0.5);
     }
 
   }
@@ -238,103 +374,14 @@
   }
 
   &__articles {
-    text-align: right;
-    align-self: flex-end;
+    text-align: center;
+    align-self: center;
     text-transform: uppercase;
   }
 
 }
 
-.sp-block-profile-block {
-  $namespace: ".sp-block-profile-block";
-  padding: var(--grid-gutter-width);
-  @include border-radius;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  &--small {
-    padding: var(--spacer-rg) var(--spacer-rg) var(--spacer-rg) var(--grid-gutter-padding);
-    #{$namespace} {
-      &__headline {
-        @include font-style("large", "bold", true);
-        margin-bottom: var(--spacer-sm);
-      }
-      &__slot {
-        margin-bottom: var(--spacer-xs);
-        margin-right: var(--spacer-sm);
-        flex-basis: 100%;
-      }
-      &__label {
-        font-size: 0.75em;
-      }
-      &__data {
-        @include font-style("regular", "bold");
-      }
-    }
-  }
-  &__headline {
-    //flex-basis: 100%;
-    margin-top: 0.2em;
-    margin-bottom: var(--spacer-md);
-    justify-self: flex-start;
-    @include font-style("subline", "extrabold", true);
-    @include textbox-polygon("primary", false);
-    &:after{
-      width: 200%;
-    }
-  }
-  &__content-wrapper {
-    flex-basis: 67%;
-    align-content: flex-start;
-    //display: flex;
-    flex-wrap: wrap;
-    //flex-direction: column;
-  }
-  &__content {
-    //flex-basis: 67%;
-    //align-content: flex-start;
-    display: flex;
-    flex-wrap: wrap;
-    //flex-direction: column;
-  }
-  &__slot {
-    margin-right: 0;
-    //margin-right: var(--grid-gutter-width);
-    margin-bottom: var(--grid-gutter-padding);
-        flex-basis: 33%;
-    &#slot{
-      &-name {
-      }
-    }
-  }
-  &__label {
-    display: inline-block;
-    @include font-style("small", "bold", true, "medium-grey");
-    margin-bottom: 0.125em;
-  }
-  &__data {
-    @include font-style("large", "bold");
-    display: block;
-    i {
-     margin: 0.125em;
-    }
 
-  }
-
-  &__photo {
-    flex-basis: 33%;
-    img {
-
-    border-radius: $border-radius;
-    }
-
-  }
-
-  &__footer {
-    flex-basis: 100%;
-  }
-
-}
 
 .sp-block-event-block {
   &__wrapper {

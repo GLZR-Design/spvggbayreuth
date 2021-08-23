@@ -6,10 +6,24 @@ $block-selector: ".wp-block-getwid-section";
 
 #{$block-selector} {
 
-  width: var(--section-container-width);
+  .wp-block-getwid-post-slider {
+    margin-left: calc(#{$article-container-padding-neg} * -1);
+    margin-right: calc(#{$article-container-padding-neg} * -1);
+  }
+
+  width: var(--article-container-width);
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
+  overflow: visible;
+
+  &:first-of-type {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+  &:last-of-type {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
 
   &.getwid-section-content-full-width {
     width: 100%;
@@ -21,6 +35,9 @@ $block-selector: ".wp-block-getwid-section";
   }
 
   &__background-holder {
+    @include box-shadow();
+    @include transform-skewY;
+    transform: skewY(0);
     z-index: -1;
       position: absolute;
       top: 0;
@@ -42,90 +59,88 @@ $block-selector: ".wp-block-getwid-section";
   }
 
   &__content {
-    width: var(--inner-container-width);
-    margin-left: auto;
-    margin-right: auto;
+    overflow: hidden;
   }
 
   &__inner-content {
-    @include transform-noSkewY;
-    padding-top: var(--section-container-padding);
-    padding-bottom: var(--section-container-padding);
+    padding-left: var(--article-container-padding);
+    padding-right: var(--article-container-padding);
+    //@include transform-noSkewY;
+    padding-top: var(--spacer-lg);
+    padding-bottom: var(--spacer-lg);
+
+    h1, h2, h3, h4, h5, h6 {
+      &.has-background {
+        //@include transform-skewY;
+        padding-left:$article-container-padding-neg;
+        //margin-top: var(--section-container-padding);
+        margin-top: $textbox-polygon-padding-y;
+        margin-bottom: 1em;
+        margin-left: calc(var(--article-container-padding) * -1);
+        & + .wp-block-cover {
+          margin-top: calc(var(--section-container-padding) * -1.65);
+        }
+
+        &:not(:first-child) {
+          margin-top: 1em;
+        }
+      }
+      &.has-subtitle-font-size {
+          font-size: var(--font-size-headline) !important;
+      }
+    }
+
+    .wp-block-cover {
+
+      height: var(--hero-image-height);
+      margin: var(--section-container-padding) calc(var(--section-container-padding) * -1);
+      img {
+
+        clip-path: polygon(0% $clippath, 100% 0%, 100% calc(100% - #{$clippath}), 0% 100%);
+        height: 100%;
+      }
+      position: relative;
+      top: 0;
+    }
 
 
   }
 
   &__title {
+
     //position: absolute;
-    transform: skewY($skew-deg);
+
     &:after {
       width: calc(300% + #{$textbox-polygon-padding-x}) !important;
 
     }
   }
 
-  //margin-top: var(--spacer-md);
-  //
-  //& & {
-  //  margin-top: 0;
-  //}
-  //&.is-hero {
-  //  height: var(--hero-image-height);
-  //}
-  //position: relative;
-  //&.getwid-section-content-full-width {
-  //  & > * > * {
-  //    //padding-top: var(--section-container-padding);
-  //    // padding-bottom: var(--section-container-padding);
-  //  }
-  //}
-  //&__background-holder {
-  //
-  //  position: absolute;
-  //  top: 0;
-  //  right: 0;
-  //  left: 0;
-  //  bottom: 0;
-  //}
-  //&__background {
-  //  border-radius: 0.25rem;
-  //  overflow: hidden;
-  //  position: absolute;
-  //  top: 0;
-  //  right: 0;
-  //  left: 0;
-  //  bottom: 0;
-  //  background-position: center;
-  //  background-size: cover;
-  //  background-repeat: no-repeat;
-  //  overflow: hidden;
-  //}
-  //@supports (-webkit-overflow-scrolling: touch) {
-  //  &__background {
-  //    background-attachment: scroll !important;
-  //  }
-  //}
-  //&__wrapper {
-  //}
-  //&__inner-wrapper {
-  //  position: relative;
-  //}
-  //&__title {
-  //}
-  //
-  //&__content {
-  //  #{$block-selector}__inner-content {
-  //    .has-title-font-size {
-  //      padding-left: var(--grid-gutter-width);
-  //    }
-  //  }
-  //  & & {
-  //    @extend %transform-noSkew;
-  //    backface-visibility: hidden;
-  //    max-width: var(--inner-container-width) !important;
-  //    margin: auto;
-  //    padding: var(--spacer-md)  0 var(--spacer-lg) 0;
-  //
-  //  }
-  //}
+}
+
+.frontpage {
+  #{$block-selector} {
+
+  }
+}
+
+// Overview
+
+#{$block-selector} {
+  &.overview {
+    margin-bottom: var(--spacer-md);
+    @include boxed-on-mobile;
+    @include border-radius;
+    #{$block-selector} {
+      &__inner-content {
+        padding: var(--grid-gutter-width);
+        .wp-block-column {
+          text-align: center;
+        }
+        h4 {
+          @include font-style("regular", "bold", true);
+        }
+      }
+    }
+  }
 }

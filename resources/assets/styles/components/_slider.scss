@@ -2,3 +2,68 @@
 /*                                   Slider                                   */
 /* -------------------------------------------------------------------------- */
 
+.glzr-block-post-slider {
+  margin-bottom: var(--spacer-lg);
+  width: var(--section-container-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.glzr-post-slider {
+
+  .slick-slide {
+    div {
+      height: 100%;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__item {
+    overflow: hidden;
+    max-height: 100%;
+    position: relative;
+  }
+  &__category {
+    z-index: 5;
+    padding-left: var(--grid-gutter-width);
+    position: absolute;
+    top: var(--spacer-lg);
+    @include transform-skewY;
+    @include textbox-polygon("primary");
+    @include font-style("regular", "bold", true);
+    &:hover {
+      &:after {
+        background-color: var(--color-light-grey);
+      }
+    }
+  }
+  &__title {
+    z-index: 10;
+    position: absolute;
+    bottom: var(--spacer-md);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(-100%) skewY(var(--skew-degree));
+    transition: all ease-in-out 0.6s;
+    opacity: 0;
+      &.show {
+        opacity: 1;
+        transform: translateX(0) skewY(var(--skew-degree));
+      }
+    span {
+    padding-left: var(--grid-gutter-width);
+
+    }
+  }
+}

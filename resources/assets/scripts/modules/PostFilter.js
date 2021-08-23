@@ -52,7 +52,6 @@ class PostFilter {
 
         this.filterTimer = setTimeout(() => {
             $("#filter-submit").click();
-            console.log("Jetzt")
         }, 700)
 
         // $(this.submitButton).click()

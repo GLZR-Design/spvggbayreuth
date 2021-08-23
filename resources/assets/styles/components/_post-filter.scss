@@ -5,6 +5,18 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: var(--spacer-md);
+    @include boxed-on-mobile;
+    @include media-breakpoint-down(mobile) {
+      justify-content: center;
+      & > * {
+        margin-right: 0;
+        flex-basis: 100%;
+        &:not(:last-child) {
+
+        margin-bottom: var(--grid-gutter-width);
+      }
+      }
+    }
   }
 
   &__categories {

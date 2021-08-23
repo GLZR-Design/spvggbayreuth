@@ -31,11 +31,6 @@ class SportspressEventList {
             })
         })
 
-        // console.log(this.EventButton);
-
-        this.EventButton.addEventListener('click', (e) => {
-            console.log(e);
-        })
 
     }
 

@@ -13,12 +13,13 @@ $code-font-stack: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
 $font-size-regular: 1rem;
 
 $font-size-map: (
+  "tiny": 0.64,
+  "small": 0.8,
   "regular": 1,
-  "large": 1.2,
-  "small": 0.81,
-  "headline": 1.81,
-  "subline": 1.5,
-  "title": 2.5,
-  "subtitle": 2.2,
+  "large": 1.25,
+  "subline": 1.563,
+  "headline": 1.953,
+  "subtitle": 2.441,
+  "title": 3.052,
   "display": 3.25
 );

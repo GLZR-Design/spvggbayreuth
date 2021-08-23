@@ -9,7 +9,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6, span, a {
-  &.has-background:not(.text-split) {
+  &.has-background:not(.text-split), &.text-split span {
     z-index: 1;
     display: inline-block;
     white-space: pre-wrap;
@@ -38,15 +38,13 @@ h1, h2, h3, h4, h5, h6, span, a {
       }
     }
     &.has-#{$color}-background-color {
-      &::after {
-        background:
-                linear-gradient(-8deg, rgba(0,0,0,0.05) 0%, rgba(255,255,255,0.075) 100%),
-                var(--color-#{$color});
+      &::after, &.text-split span::after {
+        background: var(--color-#{$color});
       }
       &.text-split {
-        &::after {
-          background-color: transparent !important;
-        }
+        //&::after {
+        //  background-color: transparent !important;
+        //}
       }
     }
   }
@@ -57,4 +55,8 @@ h1, h2, h3, h4, h5, h6, span, a {
   .has-#{$size}-font-size {
     font-size: var(--font-size-#{$size}) !important;
   }
+}
+
+.has-text-align-center {
+  text-align: center;
 }

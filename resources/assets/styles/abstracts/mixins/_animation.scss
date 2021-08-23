@@ -18,3 +18,10 @@
     transform: translateY(-1%);
   }
 }
+
+@mixin scale-on-hover {
+  @include transition(scale);
+  &:hover {
+    transform: scale(1.05);
+  }
+}

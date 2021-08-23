@@ -9,19 +9,40 @@
     align-items: flex-start;
     padding: 0;
     li {
-      @extend %headlinebox-white;
+      @include textbox-polygon("white");
       padding-left: var(--grid-gutter-width);
       a {
-        @include font-style("large", "extrabold", true, "black");
+        @include font-style("subline", "extrabold", true, "black");
+        @include media-breakpoint-down(laptop) {
+          font-size: var(--font-size-large);
+        }
       }
       line-height: 1;
       margin: 0.25em 0;
       &:before {
-        display: none;
+        display: none !important;
       }
       &::after {
         background-color: var(--color-white);
+        @include filter-drop-shadow;
+      }
+      @include media-breakpoint-down(tablet) {
+        display: block;
+        position: relative;
+        a {
+          @include font-style("subline", "extrabold", true, "black");
+        }
       }
     }
   }
+
+  @include media-breakpoint-down(tablet) {
+    display: block;
+    position: relative;
+    transform: translateY(0) skewY(var(--skew-degree));
+    li {
+      display: block;
+    }
+  }
+
 }

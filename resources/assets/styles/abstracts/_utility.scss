@@ -26,12 +26,19 @@
         background-color: var(--color-#{$color});
       }
       &:hover {
+
+        @if($color == "black") {
+          color: var(--color-white);
+        }
+
         &::after {
           transform: skewX(var(--skewX-degree)) scale(1);
         }
       }
   }
 }
+
+
 
 .is-extrabold {
   @extend %font-weight-extrabold;
@@ -99,7 +106,7 @@
 }
 
 .has-box-shadow {
-  box-shadow: 0 0 1vw rgba(0,0,0,0.25);
+@include box-shadow;
 }
 
 
@@ -114,6 +121,11 @@
 
 .text-center {
   text-align: center !important;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @each $spacer, $mult in $theme-spacer {
@@ -138,13 +150,79 @@
     margin-bottom: var(--spacer-#{$spacer});
   }
 }
+@each $spacer, $mult in $theme-spacer {
+  .pl-#{$spacer} {
+      padding-left: var(--spacer-#{$spacer});
+  }
+  .pr-#{$spacer} {
+      padding-right: var(--spacer-#{$spacer});
+    }
+  .pt-#{$spacer} {
+      padding-top: var(--spacer-#{$spacer});
+    }
+  .pb-#{$spacer} {
+      padding-bottom: var(--spacer-#{$spacer});
+    }
+  .px-#{$spacer} {
+    padding-left: var(--spacer-#{$spacer});
+    padding-right: var(--spacer-#{$spacer});
+  }
+  .py-#{$spacer} {
+    padding-top: var(--spacer-#{$spacer});
+    padding-bottom: var(--spacer-#{$spacer});
+  }
+}
 
 .no{
   &-mb {
     margin-bottom: 0 !important;
   }
+  &-mt {
+    margin-top: 0 !important;
+  }
+  &-ml {
+    margin-left: 0 !important;
+  }
+  &-mr {
+    margin-right: 0 !important;
+  }
+  &-mx {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  &-my {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  &-pb {
+    padding-bottom: 0 !important;
+  }
+  &-pt {
+    padding-top: 0 !important;
+  }
+  &-pl {
+    padding-left: 0 !important;
+  }
+  &-pr {
+    padding-right: 0 !important;
+  }
+  &-px {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  &-py {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
 
 .clearfix {
   @include clearfix();
+}
+
+.transform-skew-y {
+  @include transform-skewY;
+  img {
+    @include transform-noSkewY;
+  }
 }

@@ -4,10 +4,17 @@
     padding: var(--spacer-rg) var(--grid-gutter-width) !important;
     display: flex;
     align-items: center;
+
     & > :first-child {
       margin-left: auto;
       margin-right: var(--grid-gutter-padding);
 
+    }
+    @include media-breakpoint-down(mobile) {
+      p {
+        display: none;
+      }
+      justify-content: center;
     }
   }
   &-buttons {

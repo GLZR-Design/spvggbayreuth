@@ -27,8 +27,15 @@ if ($query->have_posts()) { ?>
     $imgAlt = $item->post_title;
     $permalink = get_field('kontakt', $item->ID)['website'];
     echo "<li class='glzr-sponsor-gallery__item' id='$item->post_name'>";
-    echo "<a href='$permalink'><img id='$imgCaption' src='{$imgSrc}' alt='$imgAlt'></a>";
-    echo "</li>";
+    echo "<a href='$permalink'";
+       if ($imgSrc) {
+        echo "><img id='$imgCaption' src='{$imgSrc}' alt='$imgAlt'>";
+       }
+       else {
+           echo " class='glzr-sponsor-gallery__item--text-only'>" . $imgAlt ;
+       }
+
+    echo "</a></li>";
 
 } ?>
 

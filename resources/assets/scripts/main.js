@@ -2,24 +2,46 @@ import MegaMenu from "./modules/MegaMenu";
 import PostFilter from "./modules/PostFilter";
 import SportspressEventList from "./modules/EventList";
 
+import PostSlider from "./modules/PostSlider";
+//
 const megaMenu = new MegaMenu();
 const postFilter = new PostFilter();
 const sportspressEventList = new SportspressEventList();
+const postSlider = new PostSlider();
 
+/* -------------------------------------------------------------------------- */
+/*                                  On Scroll                                 */
+/* -------------------------------------------------------------------------- */
 
-const breakpoints = {
-  mobile: "576px",
-  navbar: "992px",
-  tablet: "1024px",
-  laptop: "1440px",
+let prevScrollpos = window.pageYOffset;
+
+window.onscroll = function () {
+  scrollFunction();
 };
 
-const breakpointsDown = {
-  mobile: window.matchMedia(`max-width: ${breakpoints.mobile}`).matches,
-  navbar: window.matchMedia(`max-width: ${breakpoints.navbar}`).matches,
-  tablet: window.matchMedia(`max-width: ${breakpoints.tablet}`).matches,
-  laptop: window.matchMedia(`max-width: ${breakpoints.laptop}`).matches,
-};
+function scrollFunction() {
+  let currentScrollPos = window.pageYOffset;
+  if (prevScrollpos < currentScrollPos) {
+    // document.getElementsByTagName("HEADER")[0].classList.add("header--shrink");
+  } else {
+    // document.getElementsByTagName("HEADER")[0].classList.remove("header--shrink");
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+
+$('.glzr-post-slider [data-slick-index="0"] h2').toggleClass("show");
+
+$('.glzr-post-slider').on('afterChange', function(event, slick, direction){
+  const currentSlide = $('.glzr-post-slider').slick('slickCurrentSlide');
+  $('[data-slick-index="' + currentSlide + '"] h2').toggleClass("show");
+});
+
+$('.glzr-post-slider').on('beforeChange', function(event, slick, direction){
+  const currentSlide = $('.glzr-post-slider').slick('slickCurrentSlide');
+  $('[data-slick-index="' + currentSlide + '"] h2').toggleClass("show");
+});
+
 
 (function (root, $, undefined) {
   "use strict";
@@ -34,8 +56,7 @@ const breakpointsDown = {
 /* -------------------------------------------------------------------------- */
 
 $('[data-spy="scroll"]').on("activate.bs.scrollspy", function () {
-  // do something…
-  console.log("you");
+
 });
 
 /* -------------------------------------------------------------------------- */
@@ -78,8 +99,8 @@ $("#body-wrapper").hover(function () {
   }
 });
 
-$(".wp-block-getwid-table-of-contents").insertAfter("#header-wrapper");
-$(".wp-block-getwid-table-of-contents").attr("id", "scrollspy");
+// $(".wp-block-getwid-table-of-contents").insertAfter("#header-wrapper");
+// $(".wp-block-getwid-table-of-contents").attr("id", "scrollspy");
 
 /* -------------------------------------------------------------------------- */
 /*                                    Slick                                   */
@@ -87,21 +108,21 @@ $(".wp-block-getwid-table-of-contents").attr("id", "scrollspy");
 
 /* ------------------------------- Hero-slider ------------------------------ */
 
-$(document).ready(function () {
-  $(".hero-slider").slick({
-    settings: "unslick",
-    autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 10000,
-  });
-});
+// $(document).ready(function () {
+//   $(".hero-slider").slick({
+//     settings: "unslick",
+//     autoplay: true,
+//     speed: 1000,
+//     autoplaySpeed: 10000,
+//   });
+// });
 
 
 /* -------------------------------------------------------------------------- */
 /*                                 Split Lines                                */
 /* -------------------------------------------------------------------------- */
 
-$(".text-split a").each(function (index) {
+$(".text-split").each(function (index) {
   $(this).splitLines({
     tag: "<span>",
     width: 700,
@@ -139,7 +160,6 @@ $(function () {
 /* -------------------------------------------------------------------------- */
 
 $("#menu-toggle").click(function () {
-  console.log("Menu");
   $("#main-navigation").toggleClass("header__menu--hide");
 });
 
@@ -200,22 +220,7 @@ $("#input-file").change(function () {
 wp.apiFetch({
   path: "/wp-json/sportspress/v2/events",
 }).then((data) => {
-  console.log("response from apifetch: ", data);
+
 });
 
-/* -------------------------------------------------------------------------- */
-/*                                  On Scroll                                 */
-/* -------------------------------------------------------------------------- */
 
-window.onscroll = function () {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    console.log("hallo");
-    document.getElementsByClassName("header__title")[0].style.fontSize = "30px";
-  } else {
-    document.getElementsByClassName("header__title")[0].style.fontSize = "90px";
-  }
-}
