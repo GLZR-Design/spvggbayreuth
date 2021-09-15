@@ -22,7 +22,7 @@
 }
 
 @mixin section-container($fullwidth: false) {
-    width: var(--section-container-width);
+    width: var(--section-container-width) !important;
     margin-left: auto;
     margin-right: auto;
   @if ($fullwidth) {

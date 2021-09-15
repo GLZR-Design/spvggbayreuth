@@ -1,3 +1,12 @@
+<?php
+$jobs = array();
+foreach ($args['data'] as $datum) {
+    array_push($jobs, $datum->name);
+}
+
+
+?>
+
 <div class="sp-profile-block__slot" id="slot-<?php echo $args['slug'] ?>">
     <small class="sp-profile-block__label"><?php echo $args['label'] ?></small>
     <?php
@@ -10,6 +19,6 @@
     }
 
     else {
-        echo "<p class='sp-profile-block__data'>{$args['data']}</p>";
+        echo "<p class='sp-profile-block__data'>" . implode(', ', $jobs) . "</p>";
     }    ?>
 </div>

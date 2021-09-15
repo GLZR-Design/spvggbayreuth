@@ -4,12 +4,14 @@
 
     $query = new WP_Query(array(
         "post_type" => "sp_staff",
+                'order' => 'ASC',
+                'orderby' => 'date',
         'tax_query' => array(
             array(
                 'taxonomy' => 'sp_role',
                 'field' => 'slug',
                 'terms' => $args['sp_role'],
-            )
+            ),
         )
     ));
 
@@ -24,7 +26,6 @@
     <?php
 
     foreach ($query_result as $item) { ?>
-
 
         <li data-aos="zoom-in" class="sp-staff-gallery__item">
 

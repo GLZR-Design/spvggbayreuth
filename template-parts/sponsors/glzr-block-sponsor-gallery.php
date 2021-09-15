@@ -11,11 +11,18 @@ $query = new WP_Query(array(
     )
 ));
 
+$title = get_term_by('slug', $args['cat'], 'sponsortype')->name;
+$title = "Oldschdod<span>" . $title  . '</span>';
+
 $query_result = $query->posts;
 
 if ($query->have_posts()) { ?>
 
 <div class="glzr-block-sponsor-gallery">
+
+    <?php if ($args['title']) { ?>
+        <h2 class="glzr-sponsor-gallery__title is-style-italic-outline has-subtitle-font-size has-text-align-center"><?php echo $title ?></h2>
+        <?php } ?>
 
     <ul class="glzr-sponsor-gallery grid <?php echo (!empty($args['grid-size'])?'grid--' . $args['grid-size']:'') ?>">
 

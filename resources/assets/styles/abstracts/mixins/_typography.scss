@@ -29,6 +29,25 @@
   }
 }
 
+@mixin headline-outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.025em;
+  -webkit-text-stroke-color: inherit;
+  em, span {
+    -webkit-text-fill-color: currentColor;
+    -webkit-text-stroke-width: 0;
+    -webkit-text-stroke-color: transparent;
+  }
+}
+
+@mixin headline-italic($size: "subline", $outline: true) {
+  @include font-style($size, "extrabold", true, inherit);
+  font-style: italic;
+  @if ($outline) {
+    @include headline-outline;
+  }
+}
+
 @mixin text-style(
   $size: "regular",
   $line: 1.18,

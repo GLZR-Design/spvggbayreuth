@@ -4,11 +4,13 @@ if($args["size"]) {
     $addClass =  " sp-block-profile-block--{$args['size']}";
 }
 
+$name = $args['data']->title;
+
 ?>
 <div class="sp-block-profile-block<?php echo $addClass ?>" id="post-<?php the_ID(); ?>">
     <div class="sp-profile-block has-white-background-color">
     <div class="sp-profile-block__content-wrapper">
-        <h3 class="sp-profile-block__headline"><?php echo $args["data"]->title ?></h3>
+        <h3 class="sp-profile-block__headline"><?php echo $name ?></h3>
     <div class="sp-profile-block__content">
         <?php foreach ($args["data"]->data as $key => $value) {
             if ($value["data"]) {

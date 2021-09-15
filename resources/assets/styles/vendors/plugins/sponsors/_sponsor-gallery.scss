@@ -1,9 +1,11 @@
 .glzr-block-sponsor-gallery {
     @include boxed-on-mobile;
 @include section-container();
+  color: var(--color-white);
 }
 
 .glzr-sponsor-gallery {
+
   grid-gap: var(--grid-gutter-padding);
   grid-row: auto;
   grid-auto-rows: 1fr;
@@ -11,6 +13,13 @@
     margin-bottom: var(--spacer-lg);
   &:not(:last-child) {
   }
+
+  &__title {
+    padding-bottom: #{1 - $golden-ratio}em;
+    margin-bottom: #{$golden-ratio}em;
+    border-bottom: solid var(--divider-height) currentColor;
+  }
+
   &.grid {
     &--lg {
       grid-template-columns: repeat(2, 1fr);

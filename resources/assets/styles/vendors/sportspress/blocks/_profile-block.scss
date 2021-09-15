@@ -43,8 +43,9 @@
     margin-top: 0.2em;
     margin-bottom: var(--spacer-rg);
     justify-self: flex-start;
-    @include font-style("large", "extrabold", true);
-    @include textbox-polygon("primary", false);
+    font-style: italic;
+    font-weight: var(--font-weight-bold);
+    @include font-style("subline", "extrabold", true);
     &:after{
       width: 200%;
     }
