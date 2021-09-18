@@ -14,16 +14,20 @@
     grid-template-columns: repeat(auto-fit, minmax(calc(#{$sponsor-logo-height} * 2),calc(#{$sponsor-logo-height} * 3)));
     grid-auto-rows: calc(#{$sponsor-logo-height} * 1);
   }
-
   &--5 {
     grid-template-columns: repeat(5, 1fr);
 
   }
-
   &--lg, &--5 {
     @include media-breakpoint-down(tablet) {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+  &--3, &--md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &--6 {
+    grid-template-columns: repeat(6, 1fr);
   }
 
   @include boxed-on-mobile;

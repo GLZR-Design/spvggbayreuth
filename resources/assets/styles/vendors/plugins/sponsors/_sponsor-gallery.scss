@@ -10,14 +10,12 @@
   grid-row: auto;
   grid-auto-rows: 1fr;
   justify-content: center;
-    margin-bottom: var(--spacer-lg);
-  &:not(:last-child) {
-  }
+  margin-bottom: var(--spacer-lg);
 
   &__title {
     padding-bottom: #{1 - $golden-ratio}em;
     margin-bottom: #{$golden-ratio}em;
-    border-bottom: solid var(--divider-height) currentColor;
+    border-bottom: solid var(--divider-height) var(--color-primary);
   }
 
   &.grid {

@@ -5,10 +5,7 @@
 <?php
 
 $terms = get_terms('sp_position');
-$term_meta = get_term_meta(146);
-
-
-var_dump($args["data"]);
+//$term_meta = get_term_meta(146);
 
 ?>
 
@@ -20,7 +17,7 @@ foreach ($args["data"] as $item) {
 
     ?>
 
-        <h2 data-aos="fade-up" class="headline text-center has-text-shadow is-uppercase has-white-color"><?php echo $item["title"] ?></h2>
+        <h2 data-aos="fade-up" class="headline text-center has-text-shadow is-style-italic-outline has-white-color"><?php echo $item["title"] ?></h2>
 
         <ul class="sp-player-gallery grid">
 

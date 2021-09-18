@@ -453,6 +453,7 @@ require_once ( __DIR__ . "/includes/function-ajax-post-filter.php");
 require_once ( __DIR__ . "/includes/action-redirect-categories.php");
 require_once ( __DIR__ . "/includes/function-get-dummy-image-url.php");
 require_once ( __DIR__ . "/includes/filter-image-size-names-choose.php");
+require_once ( __DIR__ . "/includes/register-settings.php");
 
 /* -------------------------------------------------------------------------- */
 /*                                 Sportspress                                */

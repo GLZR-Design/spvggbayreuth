@@ -6,8 +6,13 @@
             <footer class="footer has-black-background-color">
             <section class="footer__sponsors mb-lg">
                 <?php     get_template_part("template-parts/sponsors/glzr-block-sponsor-gallery", null, array(
-                    "cat" => 'hauptsponsoren',
-                    "grid-size" => '5',
+                    "cat" => 'footer-main',
+                    "grid-size" => '3',
+                    'title' => false
+                )); ?>
+                <?php     get_template_part("template-parts/sponsors/glzr-block-sponsor-gallery", null, array(
+                    "cat" => 'herz',
+                    "grid-size" => '6',
                     'title' => false
                 )); ?>
             </section>
