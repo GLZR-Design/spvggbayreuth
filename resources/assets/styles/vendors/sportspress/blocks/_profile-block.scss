@@ -84,7 +84,9 @@
     margin-bottom: 0.125em;
   }
   &__data {
-    @include font-style("large", "bold");
+    @include font-style("base", "bold");
+    margin-top: 0.125em;
+    margin-bottom: 0em;
     display: block;
     i {
       margin: 0.125em;
@@ -109,3 +111,22 @@
   }
 
 }
+
+.wp-block-getwid-section__inner-content {
+  .sp-profile-block {
+    p {
+      margin: 0;
+    }
+    padding: 1em;
+    box-shadow: none;
+    overflow: visible;
+    &__headline {
+      font-size: var(--font-size-large);
+      margin-bottom: 0.5em;
+    }
+    &__data {
+      font-size: var(--font-size-base);
+    }
+  }
+}
+

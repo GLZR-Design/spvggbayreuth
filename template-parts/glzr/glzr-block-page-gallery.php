@@ -15,7 +15,8 @@
         if($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();
-                get_template_part("template-parts/card", 'page', array("excerpt" => false, "title" => "soziales"));
+                $category = get_the_category()[0]->name ?: '';
+                get_template_part("template-parts/card", 'page', array("excerpt" => false, "title" => $category));
             }
         }
 

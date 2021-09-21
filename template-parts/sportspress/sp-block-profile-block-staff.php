@@ -22,11 +22,11 @@ $sp_staff_object->data = array(
         "label" => "E-Mail",
         "data" => $sp_staff_contact_array["email"],
     ),
-    /*
     "telefon" => array(
         "label" => "Telefon",
         "data" => $sp_staff_contact_array["telefon"],
     ),
+    /*
     "mobil" => array(
         "label" => "Mobil",
         "data" => $sp_staff_contact_array["whatsapp"],

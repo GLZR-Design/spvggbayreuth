@@ -1,0 +1,51 @@
+.contact {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include section-container();
+  @include boxed-on-mobile;
+  & > * {
+    text-align: center;
+    margin-bottom: var(--grid-gutter-width);
+    @include media-breakpoint-down(mobile) {
+      &:not(:first-child) {
+        flex-basis: 50%;
+      }
+    }
+  }
+  &__opening {
+    flex-basis: 100%;
+  }
+  &__list {
+    margin-top: 0;
+    color: inherit;
+    flex-basis: 33%;
+    &-heading {
+      color: var(--color-white);
+    }
+  }
+  &__list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    &:not(:last-child) {
+      //margin-right: var(--grid-gutter-width);
+      margin-right: 0;
+    }
+  }
+  &__list-data {
+    &.mt-auto {
+      margin-top: auto;
+    }
+  }
+  &__heading {
+    font-size: var(--font-size-large);
+    margin-bottom: 0.618em;
+  }
+}

@@ -14,7 +14,6 @@ foreach ($sp_list_positions as $sp_position) {
         "title" => $sp_position_name,
         "data" => array()
     ];
-
 }
 
 $sp_list_data = $sp_list_object->data;

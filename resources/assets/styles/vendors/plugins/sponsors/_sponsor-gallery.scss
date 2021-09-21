@@ -16,6 +16,12 @@
     padding-bottom: #{1 - $golden-ratio}em;
     margin-bottom: #{$golden-ratio}em;
     border-bottom: solid var(--divider-height) var(--color-primary);
+    span {
+      @include media-breakpoint-down(mobile) {
+        margin-top: -0.35em;
+        display: block;
+      }
+    }
   }
 
   &.grid {
@@ -26,10 +32,10 @@
       }
     }
     &--md {
-      grid-template-columns: repeat(3, 1fr) !important;
+      //grid-template-columns: repeat(3, 1fr) !important;
     }
     &--sm {
-      grid-template-columns: repeat(4, 1fr) !important;
+      //grid-template-columns: repeat(4, 1fr) !important;
     }
   }
   //@include transform-noSkewY;
@@ -45,7 +51,7 @@
       align-self: center;
       font-style: italic;
       width: 80%;
-      @include font-style("large", "extrabold", true, "white")
+      @include font-style("large", "extrabold", true, "white");
     }
 
     @include border-radius;
