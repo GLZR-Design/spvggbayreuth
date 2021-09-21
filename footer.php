@@ -2,8 +2,6 @@
             </div>
             <!-- /wrapper -->
 
-            <?php get_template_part('template-parts/contact-box', null, null) ?>
-
             <footer class="footer has-black-background-color">
             <section class="footer__sponsors mb-lg">
                 <?php     get_template_part("template-parts/sponsors/glzr-block-sponsor-gallery", null, array(
