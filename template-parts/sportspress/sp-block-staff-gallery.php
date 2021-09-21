@@ -29,7 +29,7 @@
 
         <li data-aos="zoom-in" class="sp-staff-gallery__item">
 
-            <?php get_template_part("template-parts/sportspress/sp-block-profile-block", "staff", array('sp_object' => $item, 'show_photo' => false)) ?>
+            <?php get_template_part("template-parts/sportspress/sp-block-profile-block", "staff", array('sp_object' => $item, 'show_photo' => false,  'tel' => $args['tel'])) ?>
 
         </li>
 

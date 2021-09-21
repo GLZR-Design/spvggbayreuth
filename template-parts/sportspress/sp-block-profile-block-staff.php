@@ -22,10 +22,10 @@ $sp_staff_object->data = array(
         "label" => "E-Mail",
         "data" => $sp_staff_contact_array["email"],
     ),
-    "telefon" => array(
-        "label" => "Telefon",
-        "data" => $sp_staff_contact_array["telefon"],
-    ),
+//    "telefon" => array(
+//        "label" => "Telefon",
+//        "data" => $sp_staff_contact_array["telefon"],
+//    ),
     /*
     "mobil" => array(
         "label" => "Mobil",
@@ -33,10 +33,21 @@ $sp_staff_object->data = array(
     ),
     */
 
-); ?>
+);
+
+$show_tel = json_decode($args["tel"]);
+
+if ($show_tel) {
+    $sp_staff_object->data["telefon"] = array(
+        "label" => "Telefon",
+        "data" => $sp_staff_contact_array["telefon"],
+    );
+}
+
+?>
 
 <?php get_template_part("template-parts/sportspress/sp-block-profile-block", null, array(
     "data" => $sp_staff_object,
     "size" => "small",
-    "show_photo" => $args["show_photo"]
+    "show_photo" => $args["show_photo"],
 )) ?>
