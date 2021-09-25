@@ -61,6 +61,7 @@
                         }
 
                         else {
+
                             echo "<a href='$menuSecondaryItem->url' class='has-primary-hoverline'>$menuSecondaryItem->title</a>";
                         }
 
@@ -74,8 +75,7 @@
         }
 
         else {
-
-            echo "<a href='$menuItem->url' class='is-hoverbox-black'>$menuItem->title</a>";
+            echo "<a href='$menuItem->url' class='is-hoverbox-black' target='$menuItem->target'>$menuItem->title</a>";
         }
 
         echo "</li>";

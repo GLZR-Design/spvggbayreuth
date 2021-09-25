@@ -1,23 +1,37 @@
 <?php get_header(); ?>
 
+
 	<?php if ( have_posts() ) : while (have_posts() ) : the_post(); ?>
 
-<?php get_template_part('template-parts/hero-image') ?>
+<?php
+$taxonomyObj = get_the_terms(the_ID(), 'posttype')[0];
+$taxonomy = $taxonomyObj->taxonomy;
+$taxonomyID = $taxonomyObj->term_taxonomy_id;
+$hideHero = get_field('hide_hero', $taxonomy . '_' . $taxonomyID);
+
+if (!$hideHero) {
+    get_template_part('template-parts/hero-image');
+}
+
+?>
 
     <main class="main" role="main" aria-label="Content">
 		<!-- article -->
 
 		<article data-aos="fade-up" class="article has-dropshadow has-border-radius" id="post-<?php the_ID(); ?>">
 
+
             <?php get_template_part('template-parts/taxonomy', null, array(
                     'class_block' => 'article'
             )); ?>
 
-			<!-- post title -->
-			<h1 class="headline">
-                <?php the_title(); ?>
-			</h1>
-			<!-- /post title -->
+            <?php if (!$hideHero) { ?>
+                <!-- post title -->
+                <h1 class="headline">
+                    <?php the_title(); ?>
+                </h1>
+                <!-- /post title -->
+            <?php } ?>
 
 			<!-- post details -->
 			<!-- <span class="date">

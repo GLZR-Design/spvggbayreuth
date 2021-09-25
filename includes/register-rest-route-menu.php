@@ -26,13 +26,13 @@ function wp_menu_single($data) {
             $main_item_ID = $item->ID;
             $main_item_key = "menu-" . $main_item_ID;
 
-
-
             $menuJSON[$main_item_key] = [
                 'item_id' => $item->ID,
                 'title' => $item->title,
                 'url' => $item->url,
                 'post_type' => get_post_type($item->object_id),
+//                'restItem' => $item,
+                'target' => $item->target
 //                'category' => $item_category,
 //                'posts' => $postsArray,
             ];
@@ -48,6 +48,7 @@ function wp_menu_single($data) {
                 'post_type' => $item->object,
                 'title' => $item->title,
                 'url' => $item->url,
+                'target' => $item->target
             ];
 
             if ($item->object === "category") {
@@ -93,6 +94,7 @@ function wp_menu_single($data) {
                     'post_type' => $item->object,
                     'title' => $item->title,
                     'url' => $item->url,
+                    'target' => $item->target
                 ];
 
             }
@@ -106,6 +108,7 @@ function wp_menu_single($data) {
                 'post_type' => $item->object,
                 'title' => $item->title,
                 'url' => $item->url,
+                'target' => $item->target
             ];
 
             if ($item->object == "sp_player") {
