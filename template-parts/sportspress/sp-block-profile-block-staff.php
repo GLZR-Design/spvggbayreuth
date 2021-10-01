@@ -37,7 +37,7 @@ $sp_staff_object->data = array(
 
 $show_tel = json_decode($args["tel"]);
 
-if ($show_tel) {
+if (data["telefon"]) {
     $sp_staff_object->data["telefon"] = array(
         "label" => "Telefon",
         "data" => $sp_staff_contact_array["telefon"],
