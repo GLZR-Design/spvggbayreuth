@@ -14,10 +14,11 @@
  
     register_taxonomy('posttype',array('post'), array(
         'public' => true,
-        'hierarchical' => false,
+        'hierarchical' => true,
         'labels' => $labelsTyp,
         'show_ui' => true,
         'show_in_rest' => true, 
         'show_admin_column' => true,
-        'query_var' => true
+        'query_var' => true,
+        'meta_box_cb' => 'post_categories_meta_box'
     ));
