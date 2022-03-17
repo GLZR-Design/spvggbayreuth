@@ -7,7 +7,7 @@
                     Dienstag
                 </dt>
                 <dd class="contact__list-data">
-                    11 bis 17 Uhr
+                    9 bis 13 Uhr
                 </dd>
             </dl>
             <dl class="contact__list">
@@ -15,7 +15,7 @@
                     Donnerstag
                 </dt>
                 <dd class="contact__list-data">
-                    13 bis 18 Uhr
+                    15 bis 19 Uhr
                 </dd>
             </dl>
             <dl class="contact__list">
