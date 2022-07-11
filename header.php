@@ -5,25 +5,29 @@
 		<title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' : '; } ?><?php bloginfo( 'name' ); ?></title>
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
 		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/icons/favicon.ico" rel="shortcut icon">
-		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/spvgg_logo.svg" type="image/svg+xml" rel="icon" sizes="any">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/favicon.png" type="image/png" rel="icon" sizes="32x32">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/favicon.png" type="image/png" rel="icon" sizes="96x96">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
 		<script src="https://kit.fontawesome.com/3a3b2b13c4.js" crossorigin="anonymous"></script>
         <script type='text/javascript' src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs"></script>
 
 		<?php if(is_singular( 'team' )) {?>
 			<script type="text/javascript" src="<?php echo get_template_directory_uri(  )?>/js/fupaWidget.js"></script>
 		<?php
-		}
-
-//            $result = setlocale(LC_ALL, 'en_US.utf-8');
-//
-//            if($result === false){
-//                die('Got error changing locale, check if locale is installed on the system');
-//            }
-
+        }
 		?>
 
 
-		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8RHB48HY0D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8RHB48HY0D');
+</script>
 
 
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />

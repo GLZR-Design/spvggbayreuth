@@ -28,9 +28,6 @@ function enqueue_scripts() {
             wp_register_script('kicker', get_template_directory_uri() . '/vendor/kicker-widget.js', '', '', true);
             wp_enqueue_script('kicker');
 
-            wp_register_script('aos', get_template_directory_uri() . '/vendor/aos-master/dist/aos.css', '', '');
-            wp_enqueue_script('aos');
-
 
             wp_register_script('scripts', get_template_directory_uri() . '/assets/scripts/main.js', '', '', true);
             wp_enqueue_script('scripts');

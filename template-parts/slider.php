@@ -5,12 +5,12 @@
     <?php
 
     $args = array(
-        'posts_per_page' => -1,
+        "nopaging" => true,
         'post__in' => get_option( 'sticky_posts' ),
+        'posts_per_page' => 5,
     );
 
     $stickyPostsQuery = new WP_Query( $args );
-    $stickyPostsArray =$stickyPostsQuery->posts;
 
         while ($stickyPostsQuery->have_posts()) {
             $stickyPostsQuery->the_post();        ?>

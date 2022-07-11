@@ -18,7 +18,7 @@ if (!$hideHero) {
     <main class="main" role="main" aria-label="Content">
 		<!-- article -->
 
-		<article data-aos="fade-up" class="article has-dropshadow has-border-radius" id="post-<?php the_ID(); ?>">
+		<article data-aos="" class="article has-dropshadow has-border-radius" id="post-<?php the_ID(); ?>">
 
 
             <?php get_template_part('template-parts/taxonomy', null, array(
