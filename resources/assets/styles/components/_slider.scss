@@ -47,6 +47,15 @@
       height: 100%;
     }
 
+    &--game {
+      .sportspress__logos-block {
+        width: calc(var(--spacer-lg) * 2);
+        position: absolute;
+        top: var(--spacer-md);
+        right: var(--grid-gutter-width);
+      }
+    }
+
     &--grunge {
       background-image: url("../../img/background/background-grunge.png");
     }

@@ -469,9 +469,32 @@
     }
   }
   &__logos-block {
-    &:not(:last-child)  {
+    &:not(:last-child) {
       margin-bottom: var(--spacer-rg);
     }
+    .sp-logo-block {
+      &__wrapper {
+        flex-basis: 50%;
+      }
+      &--overlap {
+        img {
+          padding: 0;
+        }
+        & > :first-child {
+          z-index: 2;
+          img {
+            transform: translateX(10%);
+          }
+        }
+        & > :last-child {
+          z-index: 1;
+          img {
+            transform: translateX(-10%);
+          }
+        }
+      }
+    }
+
   }
   &__player-details {
     & .sportspress {
@@ -562,8 +585,8 @@
 
   &__logo {
     padding: 0 var(--spacer-rg);
-    height: 12em;
-    width: auto;
+    height: auto;
+    width: 100%;
     &--inline {
       height: var(--font-size-title);
       padding: 0;
