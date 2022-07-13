@@ -17,17 +17,69 @@
     }
   }
 
+  .slick-arrow {
+    &:before {
+      font-family: "Font Awesome 5 Pro";
+      font-size: var(--font-size-headline);
+    }
+    &.slick-prev {
+      &:before {
+        content: "angle-left";
+      }
+    }
+    &.slick-next {
+      &:before {
+        content: "angle-right";
+      }
+    }
+  }
+
   &__background {
     position: absolute;
     z-index: 1;
     height: 100%;
     width: 100%;
-    img {
-      object-fit: cover;
-      width: 100%;
+    background-size: cover;
+
+    a {
+      position: relative;
+      display: block;
       height: 100%;
     }
+
+    &--grunge {
+      background-image: url("../../img/background/background-grunge.png");
+    }
+
+    &--black {
+      background-color: var(--color-black);
+    }
+
+
+
+    &--logo {
+      img {
+
+
+      }
+    }
+
   }
+
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__logo {
+    height: 67%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+
   &__item {
     overflow: hidden;
     max-height: 100%;
