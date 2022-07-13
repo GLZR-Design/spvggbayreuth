@@ -464,7 +464,7 @@ require_once ( __DIR__ . "/includes/register-settings.php");
 			function get_sportspress_api($context, $id) {
 
                 $http = ($_SERVER["SERVER_NAME"] == "localhost")?"http:":"";
-				return $http . get_rest_url() . "sportspress/v2/" . $context . "/" . $id;
+				return get_rest_url() . "sportspress/v2/" . $context . "/" . $id;
 			}
 
             function get_altstadtkult_api($context) {
@@ -474,12 +474,12 @@ require_once ( __DIR__ . "/includes/register-settings.php");
             function get_wp_rest_api($context, $id) {
 
                 $http = ($_SERVER["SERVER_NAME"] == "localhost")?"http:":"";
-				return $http . get_rest_url() . "wp/v2/" . $context . "/" . $id;
+				return get_rest_url() . "wp/v2/" . $context . "/" . $id;
 			}
 
             function get_glzr_rest_api($context) {
                 $http = ($_SERVER["SERVER_NAME"] == "localhost")?"http:":"";
-				return $http . get_rest_url() . "glzr-sports/v0/" . $context;
+				return get_rest_url() . "glzr-sports/v0/" . $context;
 			}
 
 			function return_api_as_object($api) {
@@ -675,12 +675,14 @@ require_once ( __DIR__ . "/includes/register-settings.php");
                 <?php 
             }
 
-            function render_sportspress_event_logos_block($matchID, $withCaption = false) {
+            function render_sportspress_event_logos_block($matchID, $withCaption = false, $result = true, $size = null) {
                 $eventBlock = get_event_block_object($matchID); ?>   
                 <div class="sportspress__logos-block">
-                        <div class="sp-logo-block">
+                        <div class="sp-logo-block<?php echo $size ? ' sp-logo-block--' . $size : "" ?><?php echo $result ? "" : " sp-logo-block--overlap" ?>">
                             <?php render_sportspress_logo_block($eventBlock["homeID"], $withCaption) ?>
-                            <span class="sp-logo-block__result"><?php echo $eventBlock["result"] ?></span>
+                            <?php if ($result) { ?>
+                                <span class="sp-logo-block__result"><?php echo $eventBlock["result"] ?></span>
+                            <?php } ?>
                             <?php render_sportspress_logo_block($eventBlock["guestID"], $withCaption) ?>
                         </div>
                     </div>

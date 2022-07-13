@@ -4,11 +4,11 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' : '; } ?><?php bloginfo( 'name' ); ?></title>
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
-		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/icons/favicon.ico" rel="shortcut icon">
-		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/spvgg_logo.svg" type="image/svg+xml" rel="icon" sizes="any">
-		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/favicon.png" type="image/png" rel="icon" sizes="32x32">
-		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/favicon.png" type="image/png" rel="icon" sizes="96x96">
-		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/icons/favicon.ico" rel="shortcut icon">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/logo/spvgg_logo.svg" type="image/svg+xml" rel="icon" sizes="any">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/logo/favicon.png" type="image/png" rel="icon" sizes="32x32">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/logo/favicon.png" type="image/png" rel="icon" sizes="96x96">
+		<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/logo/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
 		<script src="https://kit.fontawesome.com/3a3b2b13c4.js" crossorigin="anonymous"></script>
         <script type='text/javascript' src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs"></script>
 
@@ -37,14 +37,6 @@
 		<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 
 		<?php wp_head(); ?>
-		<script>
-		// conditionizr.com
-		// configure environment tests
-		conditionizr.config({
-			assets: '<?php echo esc_url( get_template_directory_uri() ); ?>',
-			tests: {}
-		});
-		</script>
 
     <?php if(!$args['hide']) { ?>
 

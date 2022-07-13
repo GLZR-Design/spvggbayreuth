@@ -10,8 +10,11 @@
                                 $title = "News";
                             }
 
-                            elseif (get_field('game_related')) {
+                            elseif (get_field('game_related') || get_field("game")) {
                                 $gameID = get_field('game_to_report');
+                                if (get_field("game")) {
+                                    $gameID = get_field("game")->ID;
+                                }
                                 $gameObject = sp_rest_to_object("events", $gameID);
                                 $homeLogo = get_sp_team_logo_url($gameObject->teams[0], "logo-medium");
                                 $guestLogo = get_sp_team_logo_url($gameObject->teams[1], "logo-medium");

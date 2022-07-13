@@ -54,7 +54,7 @@ $tableObject = $data->table;
                     $hasBackgroundColor = true;
                     $backgroundColor = 'primary';
                     break;
-                case $rowCounter < 5 || ($rowCounter > 14 && $rowCounter < 17):
+                case $rowCounter < 4:
                     $hasBackgroundColor = true;
                     $backgroundColor = 'light-grey';
                     break;

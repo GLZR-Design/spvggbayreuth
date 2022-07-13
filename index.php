@@ -3,6 +3,7 @@
 <main class="main">
 
     <div class="glzr-block-post-filter">
+
     <div class="post-filter ">
         <form class="post-filter__form form" action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
 
@@ -96,7 +97,10 @@
 
                 foreach ($_GET['categories'] as $category) {
 
-                    array_push($categoryValues, $category);
+                    array_push($categoryValues, $category,);
+                    foreach (get_term_children($category, "category") as $subcategory) {
+                        array_push($categoryValues, $subcategory);
+                    }
 
                 }
 
@@ -143,7 +147,6 @@
                 echo 'No posts found';
             endif;
 //
-            var_dump($queryAdverts->have_posts(), $categoryValues);
             if ($queryAdverts->have_posts()) :
                 while ($queryAdverts->have_posts()): $queryAdverts->the_post();
                     echo "Hier bin ich";
@@ -159,6 +162,8 @@
 
     </div>
     </div>
+
+
 
 </main>
 
